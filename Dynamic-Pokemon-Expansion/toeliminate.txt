@@ -1,0 +1,21 @@
+eliminate:
+gen 8 pokemon- except the starters, sirfetch'd, obstagoon
+gen 8 abilities
+dynamax
+raid dens
+z-moves
+
+add:
+new megas
+legends arceus?
+stat buffs
+interesting abilities
+
+
+
+
+eliminated:
+backsprites.s --> all gigantamax --> @{{BLOCK(gBackShinySpriteGiga_____)
+backsprites.s --> @{{BLOCK(gBackShinySpriteGengarMax)
+backsprites.s --> all gen 8 mon references that i dont want
+
