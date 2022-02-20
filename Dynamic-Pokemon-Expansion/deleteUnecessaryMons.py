@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import os
+import shutil
 
 keepset = {"grookey", "thwackey", "rillaboom", "scorbunny", "raboot", "cinderace",
            "sobble", "drizzile", "inteleon", "sirfetch'd", "obstagoon"}
@@ -32,35 +33,40 @@ for x in range(len(pokemons)):
 def remove_unwanted_mons_audio():
     audio = "C:/Users/dswhi/Github Projects/CFRU-MyVersion/Dynamic-Pokemon-Expansion/audio"
     for x in unwanted_pokemon_list:
-        os.remove(audio+"/gCry"+x+"_flags.txt")
-        os.remove(audio+"/gCry"+x+".wav")
+        move_to_new_folder(audio+"/gCry"+x+"_flags.txt", "audiobackup")
+        move_to_new_folder(audio+"/gCry"+x+".wav", "audiobackup")
 
 
 def remove_unwanted_mons_back_sprite():
     back_sprite = "C:/Users/dswhi/Github Projects/CFRU-MyVersion/Dynamic-Pokemon-Expansion/graphics/backspr"
     for x in os.listdir(back_sprite):
         xnum = x.split("gBackShinySprite")[1][0:4]
-        if(xnum.isdigit() and int(xnum) > 1110 and int(xnum) not in keepspritenumset):
-            os.remove(x)
+        if(xnum.isdigit() and (int(xnum) > 1110 or int(xnum) == 1083 or int(xnum) == 1084) and int(xnum) not in keepspritenumset):
+            move_to_new_folder(x, "backsprbackup")
         elif(xnum == "Giga"):
-            os.remove(x)
+            move_to_new_folder(x, "backsprbackup")
 
 
 def remove_unwanted_mons_front_sprite():
     front_sprite = "C:/Users/dswhi/Github Projects/CFRU-MyVersion/Dynamic-Pokemon-Expansion/graphics/frontspr"
     for x in os.listdir(front_sprite):
         xnum = x.split("gFrontShinySprite")[1][0:4]
-        if(xnum.isdigit() and int(xnum) > 1110 and int(xnum) not in keepspritenumset):
-            os.remove(x)
+        if(xnum.isdigit() and (int(xnum) > 1110 or int(xnum) == 1083 or int(xnum) == 1084) and int(xnum) not in keepspritenumset):
+            move_to_new_folder(x, "frontsprbackup")
         elif(xnum == "Giga"):
-            os.remove(x)
+            move_to_new_folder(x, "frontsprbackup")
 
 
 def remove_unwanted_mons_icon():
     icons = "C:/Users/dswhi/Github Projects/CFRU-MyVersion/Dynamic-Pokemon-Expansion/graphics/pokeicon"
     for x in os.listdir(icons):
         xnum = x.split("gIconSprite")[1][0:4]
-        if(xnum.isdigit() and int(xnum) > 1110 and int(xnum) not in keepspritenumset):
-            os.remove(x)
+        if(xnum.isdigit() and (int(xnum) > 1110 or int(xnum) == 1083 or int(xnum) == 1084) and int(xnum) not in keepspritenumset):
+            move_to_new_folder(x, "pokeiconbackup")
         elif(xnum == "Giga"):
-            os.remove(x)
+            move_to_new_folder(x, "pokeiconbackup")
+
+
+def move_to_new_folder(file, newfolder):
+    shutil.move(file, newfolder)
+    # all other files are deleted manually- refer to "toeliminate.txt"

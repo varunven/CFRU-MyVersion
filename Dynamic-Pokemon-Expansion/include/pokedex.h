@@ -3,27 +3,27 @@
 struct PokedexEntry
 {
     /*0x00*/ u8 categoryName[12];
-    /*0x0C*/ u16 height; //in decimeters
-    /*0x0E*/ u16 weight; //in hectograms
-    /*0x10*/ const u8* description;
-    /*0x14*/ const u8* unusedDescription;
+    /*0x0C*/ u16 height; // in decimeters
+    /*0x0E*/ u16 weight; // in hectograms
+    /*0x10*/ const u8 *description;
+    /*0x14*/ const u8 *unusedDescription;
     /*0x18*/ u16 unused;
     /*0x1A*/ u16 pokemonScale;
     /*0x1C*/ u16 pokemonOffset;
     /*0x1E*/ u16 trainerScale;
     /*0x20*/ u16 trainerOffset;
-	/*0x22*/ u16 unused2;
-};  /*size = 0x24*/
+    /*0x22*/ u16 unused2;
+}; /*size = 0x24*/
 
 struct AlternateDexEntries
 {
-	u16 species;
-	const u8* description;
+    u16 species;
+    const u8 *description;
 };
 
 struct ListMenuItem
 {
-    const u8* name;
+    const u8 *name;
     s32 id;
 };
 
@@ -63,11 +63,11 @@ struct PokedexScreenData
     u8 field_40;
     u8 field_41;
     u8 field_42;
-    struct ListMenuItem* listItem;
+    struct ListMenuItem *listItem;
     u16 field_48;
     u8 field_4A[0x10];
     u16 field_5A;
-    u16 * field_5C;
+    u16 *field_5C;
     u8 field_60;
     u8 field_61;
     u16 field_62;
@@ -78,7 +78,7 @@ struct PokedexScreenData
     u16 field_6C;
 };
 
-extern struct PokedexScreenData* gPokedexScreenDataPtr;
+extern struct PokedexScreenData *gPokedexScreenDataPtr;
 
 enum
 {
@@ -88,7 +88,7 @@ enum
     FLAG_SET_CAUGHT
 };
 
-//Kanto
+// Kanto
 #define NATIONAL_DEX_NONE 0
 #define NATIONAL_DEX_BULBASAUR 1
 #define NATIONAL_DEX_IVYSAUR 2
@@ -242,7 +242,7 @@ enum
 #define NATIONAL_DEX_MEWTWO 150
 #define NATIONAL_DEX_MEW 151
 
-//Johto
+// Johto
 #define NATIONAL_DEX_CHIKORITA 152
 #define NATIONAL_DEX_BAYLEEF 153
 #define NATIONAL_DEX_MEGANIUM 154
@@ -344,7 +344,7 @@ enum
 #define NATIONAL_DEX_HO_OH 250
 #define NATIONAL_DEX_CELEBI 251
 
-//Hoenn
+// Hoenn
 #define NATIONAL_DEX_TREECKO 252
 #define NATIONAL_DEX_GROVYLE 253
 #define NATIONAL_DEX_SCEPTILE 254
@@ -484,7 +484,7 @@ enum
 #define NATIONAL_DEX_JIRACHI 385
 #define NATIONAL_DEX_DEOXYS 386
 
-//Sinnoh
+// Sinnoh
 #define NATIONAL_DEX_TURTWIG 387
 #define NATIONAL_DEX_GROTLE 388
 #define NATIONAL_DEX_TORTERRA 389
@@ -501,8 +501,8 @@ enum
 #define NATIONAL_DEX_BIBAREL 400
 #define NATIONAL_DEX_KRICKETOT 401
 #define NATIONAL_DEX_KRICKETUNE 402
-#define NATIONAL_DEX_SHINX  403
-#define NATIONAL_DEX_LUXIO  404
+#define NATIONAL_DEX_SHINX 403
+#define NATIONAL_DEX_LUXIO 404
 #define NATIONAL_DEX_LUXRAY 405
 #define NATIONAL_DEX_BUDEW 406
 #define NATIONAL_DEX_ROSERADE 407
@@ -593,7 +593,7 @@ enum
 #define NATIONAL_DEX_SHAYMIN 492
 #define NATIONAL_DEX_ARCEUS 493
 
-//Unova
+// Unova
 #define NATIONAL_DEX_VICTINI 494
 #define NATIONAL_DEX_SNIVY 495
 #define NATIONAL_DEX_SERVINE 496
@@ -751,7 +751,7 @@ enum
 #define NATIONAL_DEX_MELOETTA 648
 #define NATIONAL_DEX_GENESECT 649
 
-//Kalos
+// Kalos
 #define NATIONAL_DEX_CHESPIN 650
 #define NATIONAL_DEX_QUILLADIN 651
 #define NATIONAL_DEX_CHESNAUGHT 652
@@ -825,7 +825,7 @@ enum
 #define NATIONAL_DEX_HOOPA 720
 #define NATIONAL_DEX_VOLCANION 721
 
-//Alola
+// Alola
 #define NATIONAL_DEX_ROWLET 722
 #define NATIONAL_DEX_DARTRIX 723
 #define NATIONAL_DEX_DECIDUEYE 724
@@ -912,12 +912,7 @@ enum
 #define NATIONAL_DEX_STAKATAKA 805
 #define NATIONAL_DEX_BLACEPHALON 806
 #define NATIONAL_DEX_ZERAORA 807
-
-//Let's Go
-#define NATIONAL_DEX_MELTAN 808
-#define NATIONAL_DEX_MELMETAL 809
-
-//Sword & Shield
+// Sword & Shield
 #define NATIONAL_DEX_GROOKEY 810
 #define NATIONAL_DEX_THWACKEY 811
 #define NATIONAL_DEX_RILLABOOM 812
@@ -927,88 +922,10 @@ enum
 #define NATIONAL_DEX_SOBBLE 816
 #define NATIONAL_DEX_DRIZZILE 817
 #define NATIONAL_DEX_INTELEON 818
-#define NATIONAL_DEX_SKWOVET 819
-#define NATIONAL_DEX_GREEDENT 820
-#define NATIONAL_DEX_ROOKIDEE 821
-#define NATIONAL_DEX_CORVISQUIRE 822
-#define NATIONAL_DEX_CORVIKNIGHT 823
-#define NATIONAL_DEX_BLIPBUG 824
-#define NATIONAL_DEX_DOTTLER 825
-#define NATIONAL_DEX_ORBEETLE 826
-#define NATIONAL_DEX_NICKIT 827
-#define NATIONAL_DEX_THIEVUL 828
-#define NATIONAL_DEX_GOSSIFLEUR 829
-#define NATIONAL_DEX_ELDEGOSS 830
-#define NATIONAL_DEX_WOOLOO 831
-#define NATIONAL_DEX_DUBWOOL 832
-#define NATIONAL_DEX_CHEWTLE 833
-#define NATIONAL_DEX_DREDNAW 834
-#define NATIONAL_DEX_YAMPER 835
-#define NATIONAL_DEX_BOLTUND 836
-#define NATIONAL_DEX_ROLYCOLY 837
-#define NATIONAL_DEX_CARKOL 838
-#define NATIONAL_DEX_COALOSSAL 839
-#define NATIONAL_DEX_APPLIN 840
-#define NATIONAL_DEX_FLAPPLE 841
-#define NATIONAL_DEX_APPLETUN 842
-#define NATIONAL_DEX_SILICOBRA 843
-#define NATIONAL_DEX_SANDACONDA 844
-#define NATIONAL_DEX_CRAMORANT 845
-#define NATIONAL_DEX_ARROKUDA 846
-#define NATIONAL_DEX_BARRASKEWDA 847
-#define NATIONAL_DEX_TOXEL 848
-#define NATIONAL_DEX_TOXTRICITY 849
-#define NATIONAL_DEX_SIZZLIPEDE 850
-#define NATIONAL_DEX_CENTISKORCH 851
-#define NATIONAL_DEX_CLOBBOPUS 852
-#define NATIONAL_DEX_GRAPPLOCT 853
-#define NATIONAL_DEX_SINISTEA 854
-#define NATIONAL_DEX_POLTEAGEIST 855
-#define NATIONAL_DEX_HATENNA 856
-#define NATIONAL_DEX_HATTREM 857
-#define NATIONAL_DEX_HATTERENE 858
-#define NATIONAL_DEX_IMPIDIMP 859
-#define NATIONAL_DEX_MORGREM 860
-#define NATIONAL_DEX_GRIMMSNARL 861
-#define NATIONAL_DEX_OBSTAGOON 862
-#define NATIONAL_DEX_PERRSERKER 863
-#define NATIONAL_DEX_CURSOLA 864
-#define NATIONAL_DEX_SIRFETCHD 865
-#define NATIONAL_DEX_MR_RIME 866
-#define NATIONAL_DEX_RUNERIGUS 867
-#define NATIONAL_DEX_MILCERY 868
-#define NATIONAL_DEX_ALCREMIE 869
-#define NATIONAL_DEX_FALINKS 870
-#define NATIONAL_DEX_PINCURCHIN 871
-#define NATIONAL_DEX_SNOM 872
-#define NATIONAL_DEX_FROSMOTH 873
-#define NATIONAL_DEX_STONJOURNER 874
-#define NATIONAL_DEX_EISCUE 875
-#define NATIONAL_DEX_INDEEDEE 876
-#define NATIONAL_DEX_MORPEKO 877
-#define NATIONAL_DEX_CUFANT 878
-#define NATIONAL_DEX_COPPERAJAH 879
-#define NATIONAL_DEX_DRACOZOLT 880
-#define NATIONAL_DEX_ARCTOZOLT 881
-#define NATIONAL_DEX_DRACOVISH 882
-#define NATIONAL_DEX_ARCTOVISH 883
-#define NATIONAL_DEX_DURALUDON 884
-#define NATIONAL_DEX_DREEPY 885
-#define NATIONAL_DEX_DRAKLOAK 886
-#define NATIONAL_DEX_DRAGAPULT 887
-#define NATIONAL_DEX_ZACIAN 888
-#define NATIONAL_DEX_ZAMAZENTA 889
-#define NATIONAL_DEX_ETERNATUS 890
-#define NATIONAL_DEX_KUBFU 891
-#define NATIONAL_DEX_URSHIFU 892
-#define NATIONAL_DEX_ZARUDE 893
-#define NATIONAL_DEX_REGIELEKI 894
-#define NATIONAL_DEX_REGIDRAGO 895
-#define NATIONAL_DEX_GLASTRIER 896
-#define NATIONAL_DEX_SPECTRIER 897
-#define NATIONAL_DEX_CALYREX 898
+#define NATIONAL_DEX_OBSTAGOON 819
+#define NATIONAL_DEX_SIRFETCHD 820
 
-#define FINAL_DEX_ENTRY NATIONAL_DEX_CALYREX //Not +1 b/c used like this for some asm
+#define FINAL_DEX_ENTRY NATIONAL_DEX_SIRFETCHD // Not +1 b/c used like this for some asm
 #define NATIONAL_DEX_COUNT FINAL_DEX_ENTRY + 1
 
 extern const u8 DEX_ENTRY_TURTWIG[];
@@ -1432,8 +1349,7 @@ extern const u8 DEX_ENTRY_NAGANADEL[];
 extern const u8 DEX_ENTRY_STAKATAKA[];
 extern const u8 DEX_ENTRY_BLACEPHALON[];
 extern const u8 DEX_ENTRY_ZERAORA[];
-extern const u8 DEX_ENTRY_MELTAN[];
-extern const u8 DEX_ENTRY_MELMETAL[];
+// Sword and Shield
 extern const u8 DEX_ENTRY_GROOKEY[];
 extern const u8 DEX_ENTRY_THWACKEY[];
 extern const u8 DEX_ENTRY_RILLABOOM[];
@@ -1443,154 +1359,5 @@ extern const u8 DEX_ENTRY_CINDERACE[];
 extern const u8 DEX_ENTRY_SOBBLE[];
 extern const u8 DEX_ENTRY_DRIZZILE[];
 extern const u8 DEX_ENTRY_INTELEON[];
-extern const u8 DEX_ENTRY_SKWOVET[];
-extern const u8 DEX_ENTRY_GREEDENT[];
-extern const u8 DEX_ENTRY_ROOKIDEE[];
-extern const u8 DEX_ENTRY_CORVISQUIRE[];
-extern const u8 DEX_ENTRY_CORVIKNIGHT[];
-extern const u8 DEX_ENTRY_BLIPBUG[];
-extern const u8 DEX_ENTRY_DOTTLER[];
-extern const u8 DEX_ENTRY_ORBEETLE[];
-extern const u8 DEX_ENTRY_NICKIT[];
-extern const u8 DEX_ENTRY_THIEVUL[];
-extern const u8 DEX_ENTRY_GOSSIFLEUR[];
-extern const u8 DEX_ENTRY_ELDEGOSS[];
-extern const u8 DEX_ENTRY_WOOLOO[];
-extern const u8 DEX_ENTRY_DUBWOOL[];
-extern const u8 DEX_ENTRY_CHEWTLE[];
-extern const u8 DEX_ENTRY_DREDNAW[];
-extern const u8 DEX_ENTRY_YAMPER[];
-extern const u8 DEX_ENTRY_BOLTUND[];
-extern const u8 DEX_ENTRY_ROLYCOLY[];
-extern const u8 DEX_ENTRY_CARKOL[];
-extern const u8 DEX_ENTRY_COALOSSAL[];
-extern const u8 DEX_ENTRY_APPLIN[];
-extern const u8 DEX_ENTRY_FLAPPLE[];
-extern const u8 DEX_ENTRY_APPLETUN[];
-extern const u8 DEX_ENTRY_SILICOBRA[];
-extern const u8 DEX_ENTRY_SANDACONDA[];
-extern const u8 DEX_ENTRY_CRAMORANT[];
-extern const u8 DEX_ENTRY_ARROKUDA[];
-extern const u8 DEX_ENTRY_BARRASKEWDA[];
-extern const u8 DEX_ENTRY_TOXEL[];
-extern const u8 DEX_ENTRY_TOXTRICITY[];
-extern const u8 DEX_ENTRY_SIZZLIPEDE[];
-extern const u8 DEX_ENTRY_CENTISKORCH[];
-extern const u8 DEX_ENTRY_CLOBBOPUS[];
-extern const u8 DEX_ENTRY_GRAPPLOCT[];
-extern const u8 DEX_ENTRY_SINISTEA[];
-extern const u8 DEX_ENTRY_POLTEAGEIST[];
-extern const u8 DEX_ENTRY_HATENNA[];
-extern const u8 DEX_ENTRY_HATTREM[];
-extern const u8 DEX_ENTRY_HATTERENE[];
-extern const u8 DEX_ENTRY_IMPIDIMP[];
-extern const u8 DEX_ENTRY_MORGREM[];
-extern const u8 DEX_ENTRY_GRIMMSNARL[];
 extern const u8 DEX_ENTRY_OBSTAGOON[];
-extern const u8 DEX_ENTRY_PERRSERKER[];
-extern const u8 DEX_ENTRY_CURSOLA[];
 extern const u8 DEX_ENTRY_SIRFETCHD[];
-extern const u8 DEX_ENTRY_MR_RIME[];
-extern const u8 DEX_ENTRY_RUNERIGUS[];
-extern const u8 DEX_ENTRY_MILCERY[];
-extern const u8 DEX_ENTRY_ALCREMIE_STRAWBERRY[];
-extern const u8 DEX_ENTRY_FALINKS[];
-extern const u8 DEX_ENTRY_PINCURCHIN[];
-extern const u8 DEX_ENTRY_SNOM[];
-extern const u8 DEX_ENTRY_FROSMOTH[];
-extern const u8 DEX_ENTRY_STONJOURNER[];
-extern const u8 DEX_ENTRY_EISCUE[];
-extern const u8 DEX_ENTRY_INDEEDEE[];
-extern const u8 DEX_ENTRY_MORPEKO[];
-extern const u8 DEX_ENTRY_CUFANT[];
-extern const u8 DEX_ENTRY_COPPERAJAH[];
-extern const u8 DEX_ENTRY_DRACOZOLT[];
-extern const u8 DEX_ENTRY_ARCTOZOLT[];
-extern const u8 DEX_ENTRY_DRACOVISH[];
-extern const u8 DEX_ENTRY_ARCTOVISH[];
-extern const u8 DEX_ENTRY_DURALUDON[];
-extern const u8 DEX_ENTRY_DREEPY[];
-extern const u8 DEX_ENTRY_DRAKLOAK[];
-extern const u8 DEX_ENTRY_DRAGAPULT[];
-extern const u8 DEX_ENTRY_ZACIAN[];
-extern const u8 DEX_ENTRY_ZAMAZENTA[];
-extern const u8 DEX_ENTRY_ETERNATUS[];
-extern const u8 DEX_ENTRY_KUBFU[];
-extern const u8 DEX_ENTRY_URSHIFU_SINGLE[];
-extern const u8 DEX_ENTRY_ZARUDE[];
-extern const u8 DEX_ENTRY_REGIELEKI[];
-extern const u8 DEX_ENTRY_REGIDRAGO[];
-extern const u8 DEX_ENTRY_GLASTRIER[];
-extern const u8 DEX_ENTRY_SPECTRIER[];
-extern const u8 DEX_ENTRY_CALYREX[];
-
-extern const u8 DEX_ENTRY_RATTATA_A[];
-extern const u8 DEX_ENTRY_RATICATE_A[];
-extern const u8 DEX_ENTRY_RAICHU_A[];
-extern const u8 DEX_ENTRY_SANDSHREW_A[];
-extern const u8 DEX_ENTRY_SANDSLASH_A[];
-extern const u8 DEX_ENTRY_VULPIX_A[];
-extern const u8 DEX_ENTRY_NINETALES_A[];
-extern const u8 DEX_ENTRY_DIGLETT_A[];
-extern const u8 DEX_ENTRY_DUGTRIO_A[];
-extern const u8 DEX_ENTRY_MEOWTH_A[];
-extern const u8 DEX_ENTRY_MEOWTH_G[];
-extern const u8 DEX_ENTRY_PERSIAN_A[];
-extern const u8 DEX_ENTRY_GEODUDE_A[];
-extern const u8 DEX_ENTRY_GRAVELER_A[];
-extern const u8 DEX_ENTRY_GOLEM_A[];
-extern const u8 DEX_ENTRY_PONYTA_G[];
-extern const u8 DEX_ENTRY_RAPIDASH_G[];
-extern const u8 DEX_ENTRY_SLOWPOKE_G[];
-extern const u8 DEX_ENTRY_SLOWBRO_G[];
-extern const u8 DEX_ENTRY_FARFETCHD_G[];
-extern const u8 DEX_ENTRY_GRIMER_A[];
-extern const u8 DEX_ENTRY_MUK_A[];
-extern const u8 DEX_ENTRY_EXEGGUTOR_A[];
-extern const u8 DEX_ENTRY_MAROWAK_A[];
-extern const u8 DEX_ENTRY_WEEZING_G[];
-extern const u8 DEX_ENTRY_MR_MIME_G[];
-extern const u8 DEX_ENTRY_ARTICUNO_G[];
-extern const u8 DEX_ENTRY_ZAPDOS_G[];
-extern const u8 DEX_ENTRY_MOLTRES_G[];
-extern const u8 DEX_ENTRY_SLOWKING_G[];
-extern const u8 DEX_ENTRY_CORSOLA_G[];
-extern const u8 DEX_ENTRY_ZIGZAGOON_G[];
-extern const u8 DEX_ENTRY_LINOONE_G[];
-extern const u8 DEX_ENTRY_DARUMAKA_G[];
-extern const u8 DEX_ENTRY_DARMANITAN_G[];
-extern const u8 DEX_ENTRY_DARMANITAN_G_ZEN[];
-extern const u8 DEX_ENTRY_YAMASK_G[];
-extern const u8 DEX_ENTRY_STUNFISK_G[];
-extern const u8 DEX_ENTRY_ZYGARDE_10[];
-extern const u8 DEX_ENTRY_ZYGARDE_COMPLETE[];
-extern const u8 DEX_ENTRY_ORICORIO_Y[];
-extern const u8 DEX_ENTRY_ORICORIO_P[];
-extern const u8 DEX_ENTRY_ORICORIO_S[];
-extern const u8 DEX_ENTRY_LYCANROC_N[];
-extern const u8 DEX_ENTRY_LYCANROC_DUSK[];
-extern const u8 DEX_ENTRY_WISHIWASHI_S[];
-extern const u8 DEX_ENTRY_NECROZMA_DUSK_MANE[];
-extern const u8 DEX_ENTRY_NECROZMA_DAWN_WINGS[];
-extern const u8 DEX_ENTRY_NECROZMA_ULTRA[];
-extern const u8 DEX_ENTRY_CRAMORANT_GULPING[];
-extern const u8 DEX_ENTRY_CRAMORANT_GORGING[];
-extern const u8 DEX_ENTRY_TOXTRICITY_LOW_KEY[];
-extern const u8 DEX_ENTRY_SINISTEA_CHIPPED[];
-extern const u8 DEX_ENTRY_POLTEAGEIST_CHIPPED[];
-extern const u8 DEX_ENTRY_ALCREMIE_BERRY[];
-extern const u8 DEX_ENTRY_ALCREMIE_CLOVER[];
-extern const u8 DEX_ENTRY_ALCREMIE_FLOWER[];
-extern const u8 DEX_ENTRY_ALCREMIE_LOVE[];
-extern const u8 DEX_ENTRY_ALCREMIE_RIBBON[];
-extern const u8 DEX_ENTRY_ALCREMIE_STAR[];
-extern const u8 DEX_ENTRY_EISCUE_NOICE[];
-extern const u8 DEX_ENTRY_INDEEDEE_FEMALE[];
-extern const u8 DEX_ENTRY_MORPEKO_HANGRY[];
-extern const u8 DEX_ENTRY_ZACIAN_CROWNED[];
-extern const u8 DEX_ENTRY_ZAMAZENTA_CROWNED[];
-extern const u8 DEX_ENTRY_ETERNATUS_ETERNAMAX[];
-extern const u8 DEX_ENTRY_URSHIFU_RAPID[];
-extern const u8 DEX_ENTRY_ZARUDE_DADA[];
-extern const u8 DEX_ENTRY_CALYREX_ICE_RIDER[];
-extern const u8 DEX_ENTRY_CALYREX_SHADOW_RIDER[];

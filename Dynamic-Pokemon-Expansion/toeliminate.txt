@@ -1,5 +1,6 @@
 eliminate:
 gen 8 pokemon- except the starters, sirfetch'd, obstagoon
+melmetal
 gen 8 abilities
 dynamax
 raid dens
@@ -11,11 +12,17 @@ legends arceus?
 stat buffs
 interesting abilities
 
-
-
-
 eliminated:
-backsprites.s --> all gigantamax --> @{{BLOCK(gBackShinySpriteGiga_____)
-backsprites.s --> @{{BLOCK(gBackShinySpriteGengarMax)
-backsprites.s --> all gen 8 mon references that i dont want
+audio/
+backsprites/
+frontsprites/
+icons/
+abilities.h - gen 8 except wandering sprit, steely spirit, gorilla tactics, hunger switch
+items.h - gen 8 items and z-crystals
+moves.h - gen 8 moves and z moves 
+pokedex.h - updated to match kept mons
+species.h - updated to match kept mons
+sprite_data.h - updated to match kept mons
+Pokedex_Data.string - removed references to unwanted mons
+Pokedex_Name_Table.string - removed references to unwanted mons
 
