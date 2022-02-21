@@ -40,22 +40,23 @@ blastoise- water/steel
 butterfree- higher speed, sp atk, hp, defenses (later evo?)
 beedrill- new ability, higher attack, speed, lower spatk, better movepool
 pidgeot- newability, better movepool, higher speed
+raticate- higher defenses, 100 speed
 fearow- new ability, higher attack, higher speed 
 arbok- improved defenses, poison/ground
 raichu- buffed offensive stats 
 sandslash- buffed spdef and atk 
 alolan sandslash- buffed spdef
 ninetales- higher sp atk or speed 
-wigglytuff- pure fairy, pixelate, higher defenses
+wigglytuff- pure fairy, pixelate, higher defenses and sp atk
 golbat- higher base defenses and speed, lower sp atk 
 vileplume- magic guard 
-parasect- bug/fire, chlorophyll, rock immunity ability, fire moves
+parasect- chlorophyll, fire moves
 venomoth- bug/psychic
 dugtrio- triple threat
 alolan dugtrio- triple threat, sheer force
 persian- normal/fairy, fur coat, fix movepool
 alolan persian- dark/fairy, fix movepool, guardianangel
-golduck- water/psychic, access to focus blast/aura sphere, buffed speed, liquify
+golduck- water/psychic, access to focus blast/aura sphere, buffed speed and sp atk, liquify
 primeape- gorilla tactics 
 arcanine- strong jaw hidden, psychic fangs
 poliwrath- liquify
@@ -78,7 +79,6 @@ exeggutor- repellant
 marowak- rock polish
 alolan marowak- rock polish
 hitmonchan- adaptability, 96 speed
-hitmonlee- 60 hp, 60 def
 lickitung- recover, unaware, regenerator
 weezing- buffed spatk
 seaking- buffed attack and speed 
@@ -92,7 +92,7 @@ jolteon- access to surf, calm mind
 flareon- swap spdef, speed, incinerate
 omastar- less defense, more speed
 kabutops- deter, concrete 
-aerodactyl- brave bird, head smash, u-turn, less speed 
+aerodactyl- brave bird, head smash, u-turn, less speed, more hp
 articuno- magic guard, revelation dance
 moltres- magic guard, revelation dance
 
@@ -112,13 +112,14 @@ sudowoodo- concrete
 jumpluff- aerialate, 80 atk, 40 spatk
 sunflora- grass/fire, fire moves
 espeon- inner eye, access to aura sphere 
-girafarig- 110 speed, swords dance, aura sphere, jump kick, hi jump kick
-granbull- strong jaw, 95 atk, 80 defenses
+girafarig- 90 atk, 110 speed, swords dance, aura sphere, jump kick, hi jump kick
+dunsparce- buffed stats
+granbull- strong jaw, 100 atk, 80 defenses
 qwilfish- intoxicate, 105 spatk, 105 atk
 ursaring- normal/fairy, deter, 80 defenses
 magcargo- dry skin, shell smash 
 corsola- 90 hp, 100 defenses, 50 offenses
-octillery- mega launcher, 100 speed, 50 atk, mega launcher moves
+octillery- mega launcher, 95 speed, 50 atk, mega launcher moves
 donphan- solid rock, concrete, level up quake 
 stantler- scrappy, 110 atk, 110 speed 
 hitmontop- 80 speed, 60 hp
@@ -128,7 +129,7 @@ entei- fire/ground, incinerate
 celebi- grass/fairy, moonblast and draining kiss
 
 GEN 3
-sceptile- grass/dark, repellant, dark night slash stab
+sceptile- grass/dark, repellant
 mightyena- 100 atk, 110 speed, intimidate, deter 
 beautifly- 90 speed
 dustox- tinted lens, magic guard
@@ -136,13 +137,12 @@ masquerain- bug/water, no guard
 vigoroth- 110 atk, 60 def, 100 spd 
 ninjask- 110 atk, bug/ground 
 exploud- punk rock
-hariyama- stamina 
 delcatty- prankster, huge power, 60 atk, 100 speed 
 plusle/minun- transistor, galvanize, 100 speed 
 volbeat- bug/electric, electric moves
-illumise- bug/fairy, prankster, triage, calm mind, fairy moves
+illumise- bug/fairy, triage, calm mind, fairy moves
 swalot- intoxicate, sheer force, ice beam, flamethower, etc
-wailord- liquify, 130 hp, 80 defenses
+wailord- liquify, 120 hp, 80 defenses
 camerupt- time swap 
 torkoal- morning sun 
 grumpig- inner eye, 100 speed 
@@ -154,7 +154,6 @@ lunatone/solrock- time swap
 whiscash- swift swim 
 claydol- recover, spikes
 cradily- sap sipper, storm drain, synthesize 
-milotic- 90 defense
 castform- 90 stats 
 kecleon- 110 atk, 80 defense
 mega bannette- 140 atk, 100 speed 
@@ -164,23 +163,23 @@ mega glalie- 100 sp atk, 130 atk, 110 speed
 walrein- drizzle
 huntail- water/dragon,intimidate
 gorebyss- water/fairy, deter
-relicanth- 110 defense, 85 spdef, 100 atk
+relicanth- 110 defense, 85 spdef, 100 atk, concrete
 luvdisc- water/fairy, 100 spatk, 110 speed, draining kiss, triage 
 
 GEN 4
 torterra- synthesize
 empoleon- roost, 80 speed 
 staraptor- 110 speed 
-kricketune- huge power, 65 atk, 95 speed, 65 defenses 
+kricketune- huge power, 55 atk, 95 speed, 65 defenses 
 luxray- 90 speed, electric/dark
 rampardos- rock head 
 bastiodon- 90 hp, 138 def, spikes 
-wormadam- shield dust, 100 spatk, 80 hp 
+wormadam- 100 spatk, 80 hp 
 mothim- 60 atk, 100 speed 
 vespiquen- bug/dark, repellant, queenly majesty
-pachirisu- prankster, 120 speed, 70 spdef, 100 spatk 
+pachirisu- prankster, 120 speed, 70 spdef, 80 spatk 
 floatzel- 110 attack, access to all the fangs, strong jaw 
-cherrim- sunshine form gets 100 defenses and speed, fire move access 
+cherrim- sunshine form gets 100 defenses and speed, fire type and move access 
 gastrodon- 75 defense 
 drifblim- 120 hp, 70 defenses, 90 speed 
 mismagius- 95 stats across, 85 atk, 105 speed 
@@ -199,31 +198,31 @@ electivire- electric/fighting, galvanize
 magmortar- fire/dark, incinerate
 yanmega- bug/dragon, dragon moves, no tinted lens 
 leafeon- 105 speed, adaptability
-glaceon- 45 speed, 90 hp, sheer force
+glaceon- 50 speed, 90 hp, sheer force, slush rush
 probopass- levitate, spikes 
-dusknoir- ghost/dark, 75 hp, 120 defenses
+dusknoir- ghost/dark, 75 hp, 115 defenses
 froslass- 100 offenses, guardian angel 
 
 GEN 5
 emboar- fire/steel
 samurott- water/fighting
-watchog- deter, 100 atk, 80 speed
+watchog- deter, 100 atk, 90 speed
 stoutland- 120 atk 
 liepard- 120 spatk, 110 speed 
 simisage- synthesize, gorilla tactics
 simisear- incinerate, gorilla tactics
 simipour- liquify, gorilla tactics
 musharna- magic bounce
-unfezant- sheer force, air slash, hurricane, dark pulse, aura sphere, etc
-zebstrika- electric/fighting, jump kick, hi jump kick 
-swoobat- 80 defense 
+unfezant- sheer force, air slash, hurricane, dark pulse, aura sphere, swap atk and spatk
+zebstrika- jump kick, hi jump kick 
+swoobat- 70 defenses
 mega audino- regenerator
-throh- recover, 100 defenses, drain punch
+throh- 100 defenses, drain punch
 sawk- 110 speed, 60 defenses
 leavanny- tough claws 
 basculin- 105 atk, 110 speed 
 maractus- grassy surge, 96 offenses, grassy glide
-sigilyph- 111 speed, 111 hp, 75 def 
+sigilyph- 111 speed, 111 hp, 75 defenses
 cofagrigus- magician, shadow shield 
 archeops- 75 def, 100 atk, 100 sp atk, concrete
 garbodor- rough skin 
@@ -232,17 +231,17 @@ cincinno- 110 atk
 gothitelle- psychic/dark, dark moves, prankster
 swanna- 110 speed, 110 spatk, torrent 
 vanilluxe- 90 speed 
-sawsbuck- powders, synthesize
+sawsbuck- 120 speed, 115 atk
 emolga- 90 def, 120 speed 
 galvantula- deter, 107 sp atk, 112 speed 
 klingklang- steely spirit 
 eelektross- 125 spatk, 40 speed 
-beeheyem- psychic/fighting, guardianangel, sheer force, 95 def 
+beeheyem- psychic/fighting, guardianangel, sheer force
 chandelure- shadow tag 
 haxorus- dragon/steel, steel moves, 102 speed 
 beartic- ice/water, 120 atk, 70 speed, water moves 
 cryogonal- 120 speed, 120 spdef, 110 sp atk, 80 def 
-accelgor- 140 spatk, 105 spatk, neuroforce
+accelgor- 140 speed, 110 spatk, neuroforce
 stunfisk- water absorb, 99 def 
 bouffalant- scrappy, 120 atk 
 braviary- tough claws 
@@ -257,8 +256,8 @@ florges- natural cure, guardianangel
 gogoat- grassy surge 
 pangoro- 105 hp, 48 speed, timeswap 
 meowstic- 110 spatk 
-aromatisse- magic guard, 90 def 
-slurpuff- magic bounce, 95 def 
+aromatisse- magic guard, 89 def 
+slurpuff- magic bounce, 86 spdef 
 malamar- 83 speed 
 dragalge- 107 spatk 
 clawitzer- 105 spatk, 90 speed, 81 hp 
@@ -273,15 +272,15 @@ GEN 7
 decidueye- 90 speed 
 primarina- liquify 
 toucannon- 90 speed 
-gumshoos- 110 atk, 100 hp
+gumshoos- 115 atk, 100 hp
 vikavolt- 125 spa, 83 speed 
 crabominable- 130 speed, defeatist
 oricorio- 113 speed, 103 spa
-wishiwashi- 65 hp 
+wishiwashi- 75 hp 
 toxapex- 132 defenses 
 lurantis- chlorophyll
 bewear- knock off 
-oranguru- inner eye
+oranguru- inner eye, 100hp, 110 spa
 passimian- gorilla tactics, 100 atk
 golisopod- 85 hp 
 palossand- fix water compaction 
