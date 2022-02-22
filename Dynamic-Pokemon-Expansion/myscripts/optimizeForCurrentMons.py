@@ -166,15 +166,15 @@ def add_new_line_to_end_tms():
             elif(tm == "4 - Calm Mind.txt"):
                 txt.write("JOLTEON\nILLUMISE\n")
             elif(tm == "35 - Flamethower.txt"):
-                txt.write("PARASECT\BELLOSSOM\nSUNFLORA\nCHERRIM")
+                txt.write("PARASECT\nBELLOSSOM\nSUNFLORA\nCHERRIM")
             elif(tm == "38 - Fire Blast.txt"):
-                txt.write("PARASECT\BELLOSSOM\nSWALOT\nSUNFLORA\nCHERRIM")
+                txt.write("PARASECT\nBELLOSSOM\nSWALOT\nSUNFLORA\nCHERRIM")
             elif(tm == "24 - Thunderbolt.txt"):
-                txt.write("TYPHLOSION\n\SWALOT\n")
+                txt.write("TYPHLOSION\nSWALOT\n")
             elif(tm == "2 - Dragon Claw.txt"):
                 txt.write("LAPRAS\nHUNTAIL\nTROPIUS\n")
             elif(tm == "13 - Ice Beam.txt"):
-                txt.write("RAIKOU\n\SWALOT\n")
+                txt.write("RAIKOU\nSWALOT\n")
             elif(tm == "52 - Focus Blast.txt"):
                 txt.write("PIDGEOT\n")
             elif(tm == "12 - Taunt.txt"):
@@ -203,7 +203,7 @@ def add_new_line_to_end_tutors():
             elif(tm == "108 - Crunch.txt"):
                 txt.write("TAUROS\n")
             elif(tm == "104 - Aura Sphere.txt"):
-                txt.write("GOLDUCK\nESPEON\nUNFEZANT\nGIRAFARIG\nBEEHEYEM\n")
+                txt.write("GOLDUCK\nESPEON\nUNFEZANT\nGIRAFARIG\nBEHEEYEM\n")
             elif(tm == "95 - Heavy Slam.txt"):
                 txt.write("HAXORUS\nBLASTOISE\n")
             elif(tm == "91 - Fire Fang.txt"):
@@ -294,7 +294,7 @@ def remove_from_tms_and_tutors():
 # remove_unwanted_mons_back_sprite() DONE
 # remove_unwanted_mons_front_sprite() DONE
 # remove_unwanted_mons_icon() DONE
+# fix_pokedex_orders() DONE
 # add_new_line_to_end_tms() DONE
 # add_new_line_to_end_tutors() DONE
-# fix_pokedex_orders() DONE
 # remove_from_tms_and_tutors() DONE
