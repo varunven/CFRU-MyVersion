@@ -7,16 +7,15 @@ raid dens
 z-moves
 
 add:
-legends arceus?
 stat buffs
 type changes
 interesting abilities
 
-eliminated:
-audio/
-backsprites/
-frontsprites/
-icons/
+changes:
+scripts for audio/
+scripts for backsprites/
+scripts for frontsprites/
+scripts for icons/
 abilities.h - gen 8 except wandering sprit, steely spirit, gorilla tactics, hunger switch
 items.h - gen 8 items and z-crystals
 moves.h - gen 8 moves and z moves 
@@ -25,6 +24,15 @@ species.h - updated to match kept mons
 sprite_data.h - updated to match kept mons
 Pokedex_Data.string - removed references to unwanted mons
 Pokedex_Name_Table.string - removed references to unwanted mons
+manually adjusted base stats
+scripts for adding new learnsets to tm_compatability, tutor_compatability
+manually adjusted habitat table
+manually adjusted learnsets 
+updated palette table 
+update pokedex data table- need to fix alternate entries still
+script for removing unecessary mons from pokedex_orders
+updated shiny palette table manually 
+updated species to pokedex table manually
 
 added:
 new abilities-
@@ -53,7 +61,7 @@ vileplume- magic guard
 parasect- chlorophyll, fire moves
 venomoth- bug/psychic
 dugtrio- triple threat
-alolan dugtrio- triple threat, sheer force
+alolan dugtrio- triple threat
 persian- normal/fairy, fur coat, fix movepool
 alolan persian- dark/fairy, fix movepool, guardianangel
 golduck- water/psychic, access to focus blast/aura sphere, buffed speed and sp atk, liquify
@@ -64,7 +72,6 @@ alakazam- inner eye
 machamp- more hp 
 tentacruel- deter 
 golem- rock, concrete
-alolan golem- concrete
 rapidash- buffed spatk, lower atk, buffed speed
 magneton- triple threat
 dodrio- triple threat
@@ -93,8 +100,8 @@ flareon- swap spdef, speed, incinerate
 omastar- less defense, more speed
 kabutops- deter, concrete 
 aerodactyl- brave bird, head smash, u-turn, less speed, more hp
-articuno- magic guard, revelation dance
-moltres- magic guard, revelation dance
+articuno- magic guard, oblivion wing
+moltres- magic guard, oblivion wing 
 
 GEN 2
 meganium- grass/dragon, magic guard, sleep powder, 62 attack, 70 speed, 115 defenses
@@ -106,7 +113,7 @@ ariados- 110 attack, 40 spatk, 80 speed
 crobat- 90 spatk
 lanturn- 115 hp, 75 def
 xatu- 90 defenses, 100 spatk
-ampharos- electric/dragon, dragon pulse level up, volt absorb
+ampharos- electric/dragon, volt absorb
 bellossom- dancer, fire blast, flamethower, power gem 
 sudowoodo- concrete
 jumpluff- aerialate, 80 atk, 40 spatk
@@ -117,10 +124,10 @@ dunsparce- buffed stats
 granbull- strong jaw, 100 atk, 80 defenses
 qwilfish- intoxicate, 105 spatk, 105 atk
 ursaring- normal/fairy, deter, 80 defenses
-magcargo- dry skin, shell smash 
+magcargo- dry skin
 corsola- 90 hp, 100 defenses, 50 offenses
 octillery- mega launcher, 95 speed, 50 atk, mega launcher moves
-donphan- solid rock, concrete, level up quake 
+donphan- solid rock, concrete
 stantler- scrappy, 110 atk, 110 speed 
 hitmontop- 80 speed, 60 hp
 miltank- 90 atk, 80 spdef
@@ -274,7 +281,7 @@ primarina- liquify
 toucannon- 90 speed 
 gumshoos- 115 atk, 100 hp
 vikavolt- 125 spa, 83 speed 
-crabominable- 130 speed, defeatist
+crabominable- 130 speed, defeatist, ice shard
 oricorio- 113 speed, 103 spa
 wishiwashi- 75 hp 
 toxapex- 132 defenses 
