@@ -103,7 +103,6 @@ const u16 gGrasslandPage12[] =
 const u16 gGrasslandPage13[] =
 	{
 		SPECIES_FARFETCHD,
-		SPECIES_FARFETCHD_G,
 		SPECIES_SIRFETCHD,
 };
 
@@ -1152,8 +1151,6 @@ const u16 gSeaPage7[] =
 	{
 		SPECIES_QWILFISH,
 		SPECIES_CORSOLA,
-		SPECIES_CORSOLA_G,
-		SPECIES_CURSOLA,
 };
 
 const u16 gSeaPage8[] =
@@ -2401,10 +2398,6 @@ const struct HabitatPage gGrasslandPages[] =
 		{gGrasslandPage51, ARRAY_COUNT(gGrasslandPage51)},
 		{gGrasslandPage52, ARRAY_COUNT(gGrasslandPage52)},
 		{gGrasslandPage53, ARRAY_COUNT(gGrasslandPage53)},
-		{gGrasslandPage54, ARRAY_COUNT(gGrasslandPage54)},
-		{gGrasslandPage55, ARRAY_COUNT(gGrasslandPage55)},
-		{gGrasslandPage56, ARRAY_COUNT(gGrasslandPage56)},
-		{gGrasslandPage57, ARRAY_COUNT(gGrasslandPage57)},
 };
 
 const struct HabitatPage gForestPages[] =
@@ -2475,10 +2468,6 @@ const struct HabitatPage gForestPages[] =
 		{gForestPage59, ARRAY_COUNT(gForestPage59)},
 		{gForestPage60, ARRAY_COUNT(gForestPage60)},
 		{gForestPage61, ARRAY_COUNT(gForestPage61)},
-		{gForestPage62, ARRAY_COUNT(gForestPage62)},
-		{gForestPage63, ARRAY_COUNT(gForestPage63)},
-		{gForestPage64, ARRAY_COUNT(gForestPage64)},
-		{gForestPage65, ARRAY_COUNT(gForestPage65)},
 };
 
 const struct HabitatPage gWatersEdgePages[] =
@@ -2517,10 +2506,6 @@ const struct HabitatPage gWatersEdgePages[] =
 		{gWatersEdgePage32, ARRAY_COUNT(gWatersEdgePage32)},
 		{gWatersEdgePage33, ARRAY_COUNT(gWatersEdgePage33)},
 		{gWatersEdgePage34, ARRAY_COUNT(gWatersEdgePage34)},
-		{gWatersEdgePage35, ARRAY_COUNT(gWatersEdgePage35)},
-		{gWatersEdgePage36, ARRAY_COUNT(gWatersEdgePage36)},
-		{gWatersEdgePage37, ARRAY_COUNT(gWatersEdgePage37)},
-		{gWatersEdgePage38, ARRAY_COUNT(gWatersEdgePage38)},
 };
 
 const struct HabitatPage gSeaPages[] =
@@ -2546,7 +2531,6 @@ const struct HabitatPage gSeaPages[] =
 		{gSeaPage19, ARRAY_COUNT(gSeaPage19)},
 		{gSeaPage20, ARRAY_COUNT(gSeaPage20)},
 		{gSeaPage21, ARRAY_COUNT(gSeaPage21)},
-		{gSeaPage22, ARRAY_COUNT(gSeaPage22)},
 };
 
 const struct HabitatPage gCavePages[] =
@@ -2584,8 +2568,6 @@ const struct HabitatPage gCavePages[] =
 		{gCavePage31, ARRAY_COUNT(gCavePage31)},
 		{gCavePage32, ARRAY_COUNT(gCavePage32)},
 		{gCavePage33, ARRAY_COUNT(gCavePage33)},
-		{gCavePage34, ARRAY_COUNT(gCavePage34)},
-		{gCavePage35, ARRAY_COUNT(gCavePage35)},
 };
 
 const struct HabitatPage gMountainPages[] =
@@ -2631,8 +2613,6 @@ const struct HabitatPage gMountainPages[] =
 		{gMountainPage39, ARRAY_COUNT(gMountainPage39)},
 		{gMountainPage40, ARRAY_COUNT(gMountainPage40)},
 		{gMountainPage41, ARRAY_COUNT(gMountainPage41)},
-		{gMountainPage42, ARRAY_COUNT(gMountainPage42)},
-		{gMountainPage43, ARRAY_COUNT(gMountainPage43)},
 };
 
 const struct HabitatPage gRoughTerrainPages[] =
@@ -2661,10 +2641,6 @@ const struct HabitatPage gRoughTerrainPages[] =
 		{gRoughTerrainPage22, ARRAY_COUNT(gRoughTerrainPage22)},
 		{gRoughTerrainPage23, ARRAY_COUNT(gRoughTerrainPage23)},
 		{gRoughTerrainPage24, ARRAY_COUNT(gRoughTerrainPage24)},
-		{gRoughTerrainPage25, ARRAY_COUNT(gRoughTerrainPage25)},
-		{gRoughTerrainPage26, ARRAY_COUNT(gRoughTerrainPage26)},
-		{gRoughTerrainPage27, ARRAY_COUNT(gRoughTerrainPage27)},
-		{gRoughTerrainPage28, ARRAY_COUNT(gRoughTerrainPage28)},
 };
 
 const struct HabitatPage gUrbanPages[] =
@@ -2701,11 +2677,6 @@ const struct HabitatPage gUrbanPages[] =
 		{gUrbanPage30, ARRAY_COUNT(gUrbanPage30)},
 		{gUrbanPage31, ARRAY_COUNT(gUrbanPage31)},
 		{gUrbanPage32, ARRAY_COUNT(gUrbanPage32)},
-		{gUrbanPage33, ARRAY_COUNT(gUrbanPage33)},
-		{gUrbanPage34, ARRAY_COUNT(gUrbanPage34)},
-		{gUrbanPage35, ARRAY_COUNT(gUrbanPage35)},
-		{gUrbanPage36, ARRAY_COUNT(gUrbanPage36)},
-		{gUrbanPage37, ARRAY_COUNT(gUrbanPage37)},
 };
 
 const struct HabitatPage gRarePages[] =
@@ -2740,13 +2711,6 @@ const struct HabitatPage gRarePages[] =
 		{gRarePage28, ARRAY_COUNT(gRarePage28)},
 		{gRarePage29, ARRAY_COUNT(gRarePage29)},
 		{gRarePage30, ARRAY_COUNT(gRarePage30)},
-		{gRarePage31, ARRAY_COUNT(gRarePage31)},
-		{gRarePage32, ARRAY_COUNT(gRarePage32)},
-		{gRarePage33, ARRAY_COUNT(gRarePage33)},
-		{gRarePage34, ARRAY_COUNT(gRarePage34)},
-		{gRarePage35, ARRAY_COUNT(gRarePage35)},
-		{gRarePage36, ARRAY_COUNT(gRarePage36)},
-		{gRarePage37, ARRAY_COUNT(gRarePage37)},
 };
 
 const struct Habitat gHabitatPtrsTable[9] =
