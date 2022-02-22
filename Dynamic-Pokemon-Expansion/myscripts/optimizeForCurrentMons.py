@@ -192,9 +192,9 @@ def add_new_line_to_end_tms():
 
 
 def add_new_line_to_end_tutors():
-    tms = "C:/Users/dswhi/Github Projects/CFRU-MyVersion/Dynamic-Pokemon-Expansion/src/tutor_compatibility"
-    for tm in os.listdir(tms):
-        file = tms+"/"+tm
+    tutor = "C:/Users/dswhi/Github Projects/CFRU-MyVersion/Dynamic-Pokemon-Expansion/src/tutor_compatibility"
+    for tm in os.listdir(tutor):
+        file = tutor+"/"+tm
         with open(file, "a") as txt:
             if(tm == "118 - Psychic Fangs.txt"):
                 txt.write("ARCANINE\n")
@@ -239,7 +239,7 @@ def add_new_line_to_end_tutors():
 
 def fix_pokedex_orders():
     dex = "C:/Users/dswhi/Github Projects/CFRU-MyVersion/Dynamic-Pokemon-Expansion/src/Pokedex_Orders.txt"
-    mons = "C:/Users/dswhi/Github Projects/CFRU-MyVersion/Dynamic-Pokemon-Expansion/removed_pokemon.txt"
+    mons = "C:/Users/dswhi/Github Projects/CFRU-MyVersion/Dynamic-Pokemon-Expansion/src/removed_pokemon.txt"
     monset = set()
     for line in open(mons, "r").readlines():
         monset.add(line.strip())
@@ -247,13 +247,47 @@ def fix_pokedex_orders():
     with open(dex, "r+") as f:
         for line in f.readlines():
             data = line.strip()
-            if(data in monset):
-                data = "\n"
-            replace = replace + data + "\n"
+            if(data not in monset):
+                replace = replace + data + "\n"
     f.close()
     fout = open(dex, "w")
     fout.write(replace)
     fout.close()
+
+
+def remove_from_tms_and_tutors():
+    tutor = "C:/Users/dswhi/Github Projects/CFRU-MyVersion/Dynamic-Pokemon-Expansion/src/tutor_compatibility"
+    tms = "C:/Users/dswhi/Github Projects/CFRU-MyVersion/Dynamic-Pokemon-Expansion/src/tm_compatibility"
+    mons = "C:/Users/dswhi/Github Projects/CFRU-MyVersion/Dynamic-Pokemon-Expansion/src/tm_tutor_removed_pokemon.txt"
+    monset = set()
+    for line in open(mons, "r").readlines():
+        monset.add(line.strip())
+    for move in os.listdir(tutor):
+        replace = ""
+        file = tutor+"/"+move
+        with open(file, "r+") as txt:
+            for line in txt.readlines():
+                data = line.strip()
+                if(data not in monset):
+                    replace = replace + data + "\n"
+            txt.truncate()
+        txt.close()
+        fout = open(file, "w")
+        fout.write(replace)
+        fout.close()
+    for move in os.listdir(tms):
+        replace = ""
+        file = tms+"/"+move
+        with open(file, "r+") as txt:
+            for line in txt.readlines():
+                data = line.strip()
+                if(data not in monset):
+                    replace = replace + data + "\n"
+            txt.truncate()
+        txt.close()
+        fout = open(file, "w")
+        fout.write(replace)
+        fout.close()
 
 
 # remove_unwanted_mons_audio()
@@ -262,4 +296,5 @@ def fix_pokedex_orders():
 # remove_unwanted_mons_icon() DONE
 # add_new_line_to_end_tms() DONE
 # add_new_line_to_end_tutors() DONE
-# fix_pokedex_orders()
+# fix_pokedex_orders() DONE
+# remove_from_tms_and_tutors() DONE
