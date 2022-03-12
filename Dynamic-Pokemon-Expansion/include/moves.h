@@ -749,6 +749,7 @@
 #define MOVE_GLACIALLANCE 0x2E6
 
 // Removed Z-Moves and G-Max moves, but kept Gen 8 moves
+// add new moves?
 
 #define LAST_MOVE_INDEX MOVE_GLACIALLANCE
 #define MOVES_COUNT (MOVE_GLACIALLANCE + 1)

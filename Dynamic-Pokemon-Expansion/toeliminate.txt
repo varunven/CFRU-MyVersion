@@ -1,15 +1,15 @@
 eliminate:
-gen 8 pokemon- except the starters, sirfetch'd, obstagoon
-melmetal
-gen 8 abilities
-dynamax
+gen 8 pokemon- except the starters, sirfetch'd, obstagoon DONE
+melmetal DONE
+gen 8 abilities DONE
+dynamax DONE
 raid dens
-z-moves
+z-moves DONE
 
 add:
-stat buffs
-type changes
-interesting abilities
+stat buffs DONE
+type changes DONE
+interesting abilities DONE
 
 changes:
 scripts for audio/
@@ -33,6 +33,7 @@ update pokedex data table- need to fix alternate entries still
 script for removing unecessary mons from pokedex_orders
 updated shiny palette table manually 
 updated species to pokedex table manually
+manually adjusted cry_data
 
 added:
 new abilities-
