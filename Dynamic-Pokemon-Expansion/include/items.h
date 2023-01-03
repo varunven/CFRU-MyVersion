@@ -189,7 +189,7 @@
 #define ITEM_MENTAL_HERB 185
 
 #ifdef UNBOUND
-#define ITEM_CHOICE_BAND 0xB0 // For Unbound
+#define ITEM_CHOICE_BAND 0xB0 //For Unbound
 #else
 #define ITEM_CHOICE_BAND 186
 #endif
@@ -357,7 +357,7 @@
 #define ITEM_15B 347
 #define ITEM_15C 348
 
-// New TMs
+//New TMs
 #define ITEM_TM51 339
 #define ITEM_TM52 340
 #define ITEM_TM53 341
@@ -457,14 +457,14 @@
 #define ITEM_RUBY 373
 #define ITEM_SAPPHIRE 374
 
-// New Sellable Items
+//New Sellable Items
 #define ITEM_RARE_BONE 0x72
 #define ITEM_PEARL_STRING 0xE4
 #define ITEM_BIG_NUGGET 0xE5
 #define ITEM_COMET_SHARD 0x201
 #define ITEM_BALM_MUSHROOM 0x202
 
-// New Food Items
+//New Food Items
 #define ITEM_HONEY 0x48
 #define ITEM_BIG_MALASADA 0x203
 #define ITEM_CASTELIACONE 0x204
@@ -473,7 +473,7 @@
 #define ITEM_SHALOUR_SABLE 0x207
 #define ITEM_OLD_GATEAU 0x208
 
-// Fossils
+//Fossils
 #define ITEM_SKULL_FOSSIL 0x209
 #define ITEM_ARMOR_FOSSIL 0x20A
 #define ITEM_COVER_FOSSIL 0x20B
@@ -481,7 +481,7 @@
 #define ITEM_JAW_FOSSIL 0x20D
 #define ITEM_SAIL_FOSSIL 0x20E
 
-// EV Gain Items
+//EV Gain Items
 #define ITEM_POWER_BRACER 0xF4
 #define ITEM_POWER_BELT 0xF5
 #define ITEM_POWER_LENS 0xF6
@@ -489,7 +489,7 @@
 #define ITEM_POWER_ANKLET 0xF8
 #define ITEM_POWER_WEIGHT 0xF9
 
-// New Battle Hold Items
+//New Battle Hold Items
 #define ITEM_ADAMANT_ORB 0x214
 #define ITEM_LUSTROUS_ORB 0x215
 #define ITEM_GRISEOUS_ORB 0x216
@@ -546,7 +546,7 @@
 #define ITEM_CHOICE_SPECS 0xB1
 #define ITEM_CHOICE_SCARF 0xB2
 
-// New Incense
+//New Incense
 #define ITEM_LUCK_INCENSE 0xFC
 #define ITEM_FULL_INCENSE 0xFD
 #define ITEM_ODD_INCENSE 0xFE
@@ -555,7 +555,7 @@
 #define ITEM_ROSE_INCENSE 0x101
 #define ITEM_WAVE_INCENSE 0x102
 
-// Gems
+//Gems
 #define ITEM_NORMAL_GEM 0x24E
 #define ITEM_FIGHTING_GEM 0x24F
 #define ITEM_FLYING_GEM 0x250
@@ -575,7 +575,7 @@
 #define ITEM_DARK_GEM 0x25E
 #define ITEM_FAIRY_GEM 0x25F
 
-// Arceus Plates
+//Arceus Plates
 #define ITEM_FIST_PLATE 0x1F0
 #define ITEM_SKY_PLATE 0x1F1
 #define ITEM_TOXIC_PLATE 0x1F2
@@ -594,7 +594,7 @@
 #define ITEM_DREAD_PLATE 0x1FF
 #define ITEM_PIXIE_PLATE 0x200
 
-// Mega Stones
+//Mega Stones
 #define ITEM_MEGA_RING 0x161
 
 #define ITEM_ULTRANECROZIUM_Z 0x1BD
@@ -646,7 +646,7 @@
 #define ITEM_AUDINITE 0x1EB
 #define ITEM_DIANCITE 0x1EC
 
-// Type-Resist + New Berries
+//Type-Resist + New Berries
 #define ITEM_OCCA_BERRY 0x21B
 #define ITEM_PASSHO_BERRY 0x21C
 #define ITEM_WACAN_BERRY 0x21D
@@ -672,7 +672,7 @@
 #define ITEM_KEE_BERRY 0x231
 #define ITEM_MARANGA_BERRY 0x232
 
-// New Poke Balls
+//New Poke Balls
 #define ITEM_PARK_BALL 0x34
 #define ITEM_CHERISH_BALL 0x35
 #define ITEM_DUSK_BALL 0x3C
@@ -689,13 +689,13 @@
 #define ITEM_BEAST_BALL 0x276
 #define ITEM_DREAM_BALL 0x277
 
-// Genesect Drives
+//Genesect Drives
 #define ITEM_BURN_DRIVE 0x27A
 #define ITEM_DOUSE_DRIVE 0x27B
 #define ITEM_SHOCK_DRIVE 0x27C
 #define ITEM_CHILL_DRIVE 0x27D
 
-// Silvally Memories
+//Silvally Memories
 #define ITEM_FIGHTING_MEMORY 0x27E
 #define ITEM_FLYING_MEMORY 0x27F
 #define ITEM_POISON_MEMORY 0x280
@@ -714,7 +714,7 @@
 #define ITEM_DARK_MEMORY 0x28D
 #define ITEM_FAIRY_MEMORY 0x28E
 
-// Wings
+//Wings
 #define ITEM_HEALTH_WING 0x261
 #define ITEM_MUSCLE_WING 0x262
 #define ITEM_RESIST_WING 0x263
@@ -723,20 +723,20 @@
 #define ITEM_SWIFT_WING 0x266
 #define ITEM_PRETTY_WING 0x267
 
-// Random Normal Items
+//Random Normal Items
 #define ITEM_ODD_KEYSTONE 0xFB
 #define ITEM_BOTTLE_CAP 0x268
 #define ITEM_GOLD_BOTTLE_CAP 0x269
 #define ITEM_ABILITY_CAPSULE 0x260
 #define ITEM_WISHING_PIECE 0x58
 
-// Nectars
+//Nectars
 #define ITEM_RED_NECTAR 0x26A
 #define ITEM_YELLOW_NECTAR 0x26B
 #define ITEM_PINK_NECTAR 0x26C
 #define ITEM_PURPLE_NECTAR 0x26D
 
-// Evolution Items
+//Evolution Items
 #define ITEM_LINK_STONE 0x5B
 #define ITEM_DUSK_STONE 0x63
 #define ITEM_DAWN_STONE 0x64
@@ -768,7 +768,7 @@
 #define ITEM_GALARICA_CUFF 0x2D3
 #define ITEM_GALARICA_WREATH 0x2D4
 
-// New Key Items
+//New Key Items
 #define ITEM_GRACIDEA 0x217
 #define ITEM_DNA_SPLICERS 0x218
 #define ITEM_REVEAL_GLASS 0x219
@@ -788,7 +788,7 @@
 
 #define ITEM_DYNAMAX_BAND 0x10C
 
-// Relic Items
+//Relic Items
 #define ITEM_RELIC_COPPER 0x297
 #define ITEM_RELIC_SILVER 0x298
 #define ITEM_RELIC_GOLD 0x299
@@ -797,6 +797,80 @@
 #define ITEM_RELIC_STATUE 0x29C
 #define ITEM_RELIC_CROWN 0x29D
 
-// Sword & Shield Hold Items Removed
+//Z-Crystals
+enum
+{
+	ITEM_NORMALIUM_Z = 0x29E, 		//All items after this will be 0x29E + 1, 0x29E + 2...
+	ITEM_FIGHTINIUM_Z, 		//0x29F //Put the Z-Crystals in order
+	ITEM_FLYINIUM_Z,		//0x2A0
+	ITEM_POISONIUM_Z,		//0x2A1
+	ITEM_GROUNDIUM_Z,		//0x2A2
+	ITEM_ROCKIUM_Z,			//0x2A3
+	ITEM_BUGINIUM_Z,		//0x2A4
+	ITEM_GHOSTIUM_Z,		//0x2A5
+	ITEM_STEELIUM_Z,		//0x2A6
+	ITEM_FIRIUM_Z,			//0x2A7
+	ITEM_WATERIUM_Z,		//0x2A8
+	ITEM_GRASSIUM_Z,		//0x2A9
+	ITEM_ELECTRIUM_Z,		//0x2AA
+	ITEM_PSYCHIUM_Z,		//0x2AB
+	ITEM_ICIUM_Z,			//0x2AC
+	ITEM_DRAGONIUM_Z,		//0x2AD
+	ITEM_DARKINIUM_Z,		//0x2AE
+	ITEM_FAIRIUM_Z,			//0x2AF
+	ITEM_ALORAICHIUM_Z,	//0x2B0
+	ITEM_DECIDIUM_Z,		//0x2B1
+	ITEM_EEVIUM_Z,			//0x2B2
+	ITEM_INCINIUM_Z,		//0x2B3
+	ITEM_KOMMONIUM_Z,		//0x2B4
+	ITEM_LUNALIUM_Z,		//0x2B5
+	ITEM_LYCANIUM_Z,		//0x2B6
+	ITEM_MARSHADIUM_Z,		//0x2B7
+	ITEM_MEWNIUM_Z,			//0x2B8
+	ITEM_MIMIKIUM_Z,		//0x2B9
+	ITEM_PIKANIUM_Z,		//0x2BA
+	ITEM_PIKASHUNIUM_Z,		//0x2BB
+	ITEM_PRIMARIUM_Z,		//0x2BC
+	ITEM_SNORLIUM_Z,		//0x2BD
+	ITEM_SOLGANIUM_Z,		//0x2BE
+	ITEM_TAPUNIUM_Z,		//0x2BF
+};
+
+//Sword & Shield Hold Items
+#define ITEM_EJECT_PACK 0x2C0
+#define ITEM_ROOM_SERVICE 0x2C1
+#define ITEM_BLUNDER_POLICY 0x2C2
+#define ITEM_HEAVY_DUTY_BOOTS 0x2C3
+#define ITEM_UTILITY_UMBRELLA 0x2C4
+#define ITEM_THROAT_SPRAY 0x2C5
+#define ITEM_RUSTED_SWORD 0x2C6
+#define ITEM_RUSTED_SHIELD 0x2C7
 
 #define ITEMS_COUNT (ITEM_STAR_SWEET + 1)
+
+//For Pokemon Unbound
+#ifdef UNBOUND
+
+#undef ITEM_ENIGMA_BERRY
+
+#define ITEM_ODDISH_LEAF 0x57
+#define ITEM_ENIGMA_BERRY 0x76
+#define ITEM_DOWSING_MACHINE 0x105
+#define ITEM_UNIFORM 0x10B
+#define ITEM_FASHION_CASE 0x10E
+#define ITEM_POKE_BALL_KEY_ITEM 0x111
+#define ITEM_KEY_CARD_1 0x163
+#define ITEM_KEY_CARD_2 0x11A
+#define ITEM_KEY_CARD_3 0x11B
+#define ITEM_QUEST_LOG 0x15C
+#define ITEM_SMELLY_SOCKS 0x15F
+
+#define ITEM_MEGA_CUFF 0x77
+#define ITEM_MEGA_BONNET 0x78
+#define ITEM_MEGA_EARING 0x20F
+#define ITEM_MEGA_CHARM 0x210
+#define ITEM_MEGA_BRACELET 0x211
+#define ITEM_MEGA_ANKLET 0x212
+#define ITEM_MEGA_PENDANT 0x213
+
+#endif

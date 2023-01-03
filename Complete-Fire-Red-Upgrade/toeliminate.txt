@@ -1,0 +1,34 @@
+eliminate:
+gen 8 pokemon- except the starters, sirfetch'd, obstagoon 
+melmetal 
+gen 8 abilities 
+dynamax 
+raid dens
+z-moves 
+
+add:
+implement interesting abilities 
+
+necessary changes:
+abilities - gen 8 except wandering sprit, steely spirit, gorilla tactics, hunger switch
+    liquify, concrete, intoxicate, synthesize, ignite (water, rock, poison, grass, fire pixelate)
+    timeswap (instant trick room on switch in)
+    guardianangel (immunity to fairy)
+    deter (special intimidate)
+    innereye (moves ignore immunities for both targetting and getting targetted)
+to change these: 
+    find aerilate/pixilate and adjust similarly
+    find drizzle? drought? adjust accordingly
+    find flash fire and adjust similarly
+    find intimidate and adjust similarly
+    find scrappy and adjust similarly
+items - gen 8 items and z-crystals
+moves - g max moves and z moves 
+
+files to update:
+    asm_defines.s -> update abilities 
+    battle_script_macros.s -> update abilities
+    ability_battle_scripts.s -> accomodate for new abilities
+    z_effect_battle_scripts.s -> remove all references to z moves
+    ability_description_tables.s -> add references to abilities, remove gen 8
+    ability_tables.s -> removed gen 8

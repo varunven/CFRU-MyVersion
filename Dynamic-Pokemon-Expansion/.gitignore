@@ -12,3 +12,5 @@ scripts/__pycache__
 offsets.ini
 generatedrepoints
 *.idea
+/src/tm_compatibility copy
+/src/tutor_compatibility copy
