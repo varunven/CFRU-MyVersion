@@ -57,49 +57,49 @@ extern const u8 BS_Female_Player_Brown_Silver_PurplePal[];
 struct CharacterCustomizationPaletteSwitch
 {
 	u16 owNum;
-	const u8 *frontSpritePal;
-	const u8 *backSpritePal;
+	const u8* frontSpritePal;
+	const u8* backSpritePal;
 };
 
 static const struct CharacterCustomizationPaletteSwitch sCharacterPalSwitchTable[] =
-	{
-		{262, TS_Male_Player_White_Brunette_BlackPal, BS_Male_Player_White_Brunette_BlackPal},
-		{271, TS_Male_Player_White_Silver_RedPal, BS_Male_Player_White_Silver_RedPal},
-		{280, TS_Male_Player_White_Silver_BlackPal, BS_Male_Player_White_Silver_BlackPal},
-		{289, TS_Male_Player_Brown_Dark_RedPal, BS_Male_Player_Brown_Dark_RedPal},
-		{298, TS_Male_Player_Brown_Dark_BlackPal, BS_Male_Player_Brown_Dark_BlackPal},
-		{307, TS_Male_Player_Brown_Silver_RedPal, BS_Male_Player_Brown_Silver_RedPal},
-		{316, TS_Male_Player_Brown_Silver_BlackPal, BS_Male_Player_Brown_Silver_BlackPal},
-		{325, TS_Female_Player_White_Brunette_PurplePal, BS_Female_Player_White_Brunette_PurplePal},
-		{334, TS_Female_Player_White_Silver_RedPal, BS_Female_Player_White_Silver_RedPal},
-		{343, TS_Female_Player_White_Silver_PurplePal, BS_Female_Player_White_Silver_PurplePal},
-		{352, TS_Female_Player_Brown_Dark_RedPal, BS_Female_Player_Brown_Dark_RedPal},
-		{361, TS_Female_Player_Brown_Dark_PurplePal, BS_Female_Player_Brown_Dark_PurplePal},
-		{370, TS_Female_Player_Brown_Silver_RedPal, BS_Female_Player_Brown_Silver_RedPal},
-		{379, TS_Female_Player_Brown_Silver_PurplePal, BS_Female_Player_Brown_Silver_PurplePal},
-		{0xFFFF, NULL, NULL},
+{
+	{262, 		TS_Male_Player_White_Brunette_BlackPal, BS_Male_Player_White_Brunette_BlackPal},
+	{271, 		TS_Male_Player_White_Silver_RedPal, BS_Male_Player_White_Silver_RedPal},
+	{280, 		TS_Male_Player_White_Silver_BlackPal, BS_Male_Player_White_Silver_BlackPal},
+	{289, 		TS_Male_Player_Brown_Dark_RedPal, BS_Male_Player_Brown_Dark_RedPal},
+	{298, 		TS_Male_Player_Brown_Dark_BlackPal, BS_Male_Player_Brown_Dark_BlackPal},
+	{307, 		TS_Male_Player_Brown_Silver_RedPal, BS_Male_Player_Brown_Silver_RedPal},
+	{316, 		TS_Male_Player_Brown_Silver_BlackPal, BS_Male_Player_Brown_Silver_BlackPal},
+	{325, 		TS_Female_Player_White_Brunette_PurplePal, BS_Female_Player_White_Brunette_PurplePal},
+	{334, 		TS_Female_Player_White_Silver_RedPal, BS_Female_Player_White_Silver_RedPal},
+	{343, 		TS_Female_Player_White_Silver_PurplePal, BS_Female_Player_White_Silver_PurplePal},
+	{352, 		TS_Female_Player_Brown_Dark_RedPal, BS_Female_Player_Brown_Dark_RedPal},
+	{361, 		TS_Female_Player_Brown_Dark_PurplePal, BS_Female_Player_Brown_Dark_PurplePal},
+	{370, 		TS_Female_Player_Brown_Silver_RedPal, BS_Female_Player_Brown_Silver_RedPal},
+	{379, 		TS_Female_Player_Brown_Silver_PurplePal, BS_Female_Player_Brown_Silver_PurplePal},
+	{0xFFFF, 	NULL, NULL},
 };
 #endif
 
 #ifdef EXISTING_OW_TABLE_ADDRESS
-#define gOverworldTableSwitcher ((struct EventObjectGraphicsInfo ***)EXISTING_OW_TABLE_ADDRESS)
-#elif defined UNBOUND // For Pokemon Unbound
-const struct EventObjectGraphicsInfo **const gOverworldTableSwitcher[] =
+	#define gOverworldTableSwitcher ((struct EventObjectGraphicsInfo***) EXISTING_OW_TABLE_ADDRESS)
+#elif defined UNBOUND //For Pokemon Unbound
+	const struct EventObjectGraphicsInfo** const gOverworldTableSwitcher[] =
 	{
-		(NPCPtr *)0x88110E0,
-		(NPCPtr *)0x88B2720,
-		(NPCPtr *)0x88B2B20,
-};
+		(NPCPtr*) 0x88110E0,
+		(NPCPtr*) 0x88B2720,
+		(NPCPtr*) 0x88B2B20,
+	};
 
-#else // Modify this
-// create 255 OW tables
-const struct EventObjectGraphicsInfo **const gOverworldTableSwitcher[255] =
+#else //Modify this
+	// create 255 OW tables
+	const struct EventObjectGraphicsInfo** const gOverworldTableSwitcher[255] =
 	{
-		(NPCPtr *)0x839FDB0,
-		(NPCPtr *)0x0,
+		(NPCPtr*) 0x839FDB0,
+		(NPCPtr*) 0x0,
 		// etc...
 		// please note that this method makes compatability with OW Manager challenging
-};
+	};
 #endif
 
 struct PlayerGraphics
@@ -109,70 +109,70 @@ struct PlayerGraphics
 };
 
 static const struct PlayerGraphics sPlayerAvatarGfxIds[][2] =
-	{
-		[PLAYER_AVATAR_STATE_NORMAL] = {{EVENT_OBJ_GFX_RED_NORMAL, PLAYER_AVATAR_FLAG_ON_FOOT}, {EVENT_OBJ_GFX_LEAF_NORMAL, PLAYER_AVATAR_FLAG_ON_FOOT}},
-		[PLAYER_AVATAR_STATE_BIKE] = {{EVENT_OBJ_GFX_RED_BIKE, PLAYER_AVATAR_FLAG_BIKE}, {EVENT_OBJ_GFX_LEAF_BIKE, PLAYER_AVATAR_FLAG_BIKE}},
-		[PLAYER_AVATAR_STATE_SURFING] = {{EVENT_OBJ_GFX_RED_SURFING, PLAYER_AVATAR_FLAG_SURFING}, {EVENT_OBJ_GFX_LEAF_SURFING, PLAYER_AVATAR_FLAG_SURFING}},
-		[PLAYER_AVATAR_STATE_FIELD_MOVE] = {{EVENT_OBJ_GFX_RED_FIELD_MOVE, PLAYER_AVATAR_FLAG_FIELD_MOVE}, {EVENT_OBJ_GFX_LEAF_FIELD_MOVE, PLAYER_AVATAR_FLAG_FIELD_MOVE}},
-		[PLAYER_AVATAR_STATE_FISHING] = {{EVENT_OBJ_GFX_RED_FISHING, 0}, {EVENT_OBJ_GFX_LEAF_FISHING, 0}},
-		[PLAYER_AVATAR_STATE_VS_SEEKER] = {{EVENT_OBJ_GFX_RED_VS_SEEKER, 0}, {EVENT_OBJ_GFX_LEAF_VS_SEEKER, 0}},
-		[PLAYER_AVATAR_STATE_UNDERWATER] = {{EVENT_OBJ_GFX_RED_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER}, {EVENT_OBJ_GFX_LEAF_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER}},
+{
+	[PLAYER_AVATAR_STATE_NORMAL] =     {{EVENT_OBJ_GFX_RED_NORMAL, PLAYER_AVATAR_FLAG_ON_FOOT},          {EVENT_OBJ_GFX_LEAF_NORMAL, PLAYER_AVATAR_FLAG_ON_FOOT}},
+	[PLAYER_AVATAR_STATE_BIKE] =       {{EVENT_OBJ_GFX_RED_BIKE, PLAYER_AVATAR_FLAG_BIKE},               {EVENT_OBJ_GFX_LEAF_BIKE, PLAYER_AVATAR_FLAG_BIKE}},
+	[PLAYER_AVATAR_STATE_SURFING] =    {{EVENT_OBJ_GFX_RED_SURFING, PLAYER_AVATAR_FLAG_SURFING},         {EVENT_OBJ_GFX_LEAF_SURFING, PLAYER_AVATAR_FLAG_SURFING}},
+	[PLAYER_AVATAR_STATE_FIELD_MOVE] = {{EVENT_OBJ_GFX_RED_FIELD_MOVE, PLAYER_AVATAR_FLAG_FIELD_MOVE},   {EVENT_OBJ_GFX_LEAF_FIELD_MOVE, PLAYER_AVATAR_FLAG_FIELD_MOVE}},
+	[PLAYER_AVATAR_STATE_FISHING] =    {{EVENT_OBJ_GFX_RED_FISHING, 0},                                  {EVENT_OBJ_GFX_LEAF_FISHING, 0}},
+	[PLAYER_AVATAR_STATE_VS_SEEKER] =  {{EVENT_OBJ_GFX_RED_VS_SEEKER, 0},                                {EVENT_OBJ_GFX_LEAF_VS_SEEKER, 0}},
+	[PLAYER_AVATAR_STATE_UNDERWATER] = {{EVENT_OBJ_GFX_RED_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},   {EVENT_OBJ_GFX_LEAF_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER}},
 };
 
-// This file's functions:
+//This file's functions:
 #ifdef UNBOUND
-static const u8 *GetAlternateTrainerSpritePal(void);
+static const u8* GetAlternateTrainerSpritePal(void);
 #endif
 
-// npc_get_type hack for character customization
-// hook at 0805F2C8 via r1
+//npc_get_type hack for character customization
+//hook at 0805F2C8 via r1
 NPCPtr GetEventObjectGraphicsInfo(u16 graphicsId)
 {
 	u16 newId;
-	u8 tableId = (graphicsId >> 8) & 0xFF; // upper byte
-	u8 spriteId = graphicsId & 0xFF;	   // lower byte
+	u8 tableId = (graphicsId >> 8) & 0xFF;	// upper byte
+	u8 spriteId = graphicsId & 0xFF;		// lower byte
 
-	// Check runtime changeable OWs
+	//Check runtime changeable OWs
 	if (tableId == 0xFF && spriteId <= 0xF)
 	{
-		// Runtime changeable
+		//Runtime changeable
 		newId = VarGet(VAR_RUNTIME_CHANGEABLE + spriteId);
-		tableId = (newId >> 8) & 0xFF; // upper byte
-		spriteId = (newId & 0xFF);	   // lower byte
+		tableId = (newId >> 8) & 0xFF;	// upper byte
+		spriteId = (newId & 0xFF);		// lower byte
 	}
 	else
 	{
-		switch (spriteId)
-		{
-		case EVENT_OBJ_GFX_RED_BIKE_VS_SEEKER:
-		case EVENT_OBJ_GFX_LEAF_BIKE_VS_SEEKER:
-			newId = VarGet(VAR_PLAYER_VS_SEEKER_ON_BIKE);
-			break;
+		switch (spriteId) {
+			case EVENT_OBJ_GFX_RED_BIKE_VS_SEEKER:
+			case EVENT_OBJ_GFX_LEAF_BIKE_VS_SEEKER:
+				newId = VarGet(VAR_PLAYER_VS_SEEKER_ON_BIKE);
+				break;
 		}
 
 		if (spriteId > 239 && tableId == 0)
 		{
 			newId = VarGetEventObjectGraphicsId(spriteId + 16);
-			tableId = (newId >> 8) & 0xFF; // upper byte
-			spriteId = (newId & 0xFF);	   // lower byte
+			tableId = (newId >> 8) & 0xFF;	// upper byte
+			spriteId = (newId & 0xFF);		// lower byte
 		}
 	}
 
 	NPCPtr spriteAddr;
-#ifndef EXISTING_OW_TABLE_ADDRESS
-	if (tableId >= NELEMS(gOverworldTableSwitcher) || gOverworldTableSwitcher[tableId] == 0)
+	#ifndef EXISTING_OW_TABLE_ADDRESS
+	if (tableId >= NELEMS(gOverworldTableSwitcher)
+	|| gOverworldTableSwitcher[tableId] == 0)
 		spriteAddr = gOverworldTableSwitcher[0][spriteId];
 	else
-#endif
+	#endif
 		spriteAddr = gOverworldTableSwitcher[tableId][spriteId];
 
 	if (spriteAddr == NULL)
-		spriteAddr = gOverworldTableSwitcher[0][EVENT_OBJ_GFX_LITTLE_BOY]; // first non-player sprite in first table default
+		spriteAddr = gOverworldTableSwitcher[0][EVENT_OBJ_GFX_LITTLE_BOY];	// first non-player sprite in first table default
 
 	return spriteAddr;
 };
 
-NPCPtr GetEventObjectGraphicsInfoByEventObj(struct EventObject *eventObj)
+NPCPtr GetEventObjectGraphicsInfoByEventObj(struct EventObject* eventObj)
 {
 	return GetEventObjectGraphicsInfo(GetEventObjectGraphicsId(eventObj));
 }
@@ -181,29 +181,28 @@ static u16 GetCustomGraphicsIdByState(u8 state)
 {
 	u16 spriteId = 0;
 
-	switch (state)
-	{
-	case PLAYER_AVATAR_STATE_NORMAL:
-		spriteId = VarGet(VAR_PLAYER_WALKRUN);
-		break;
-	case PLAYER_AVATAR_STATE_BIKE:
-		spriteId = VarGet(VAR_PLAYER_BIKING);
-		break;
-	case PLAYER_AVATAR_STATE_SURFING:
-		spriteId = VarGet(VAR_PLAYER_SURFING);
-		break;
-	case PLAYER_AVATAR_STATE_FIELD_MOVE: // HM Use
-		spriteId = VarGet(VAR_PLAYER_HM_USE);
-		break;
-	case PLAYER_AVATAR_STATE_VS_SEEKER:
-		spriteId = VarGet(VAR_PLAYER_VS_SEEKER);
-		break;
-	case PLAYER_AVATAR_STATE_FISHING:
-		spriteId = VarGet(VAR_PLAYER_FISHING);
-		break;
-	case PLAYER_AVATAR_STATE_UNDERWATER:
-		spriteId = VarGet(VAR_PLAYER_UNDERWATER);
-		break;
+	switch (state) {
+		case PLAYER_AVATAR_STATE_NORMAL:
+			spriteId = VarGet(VAR_PLAYER_WALKRUN);
+			break;
+		case PLAYER_AVATAR_STATE_BIKE:
+			spriteId = VarGet(VAR_PLAYER_BIKING);
+			break;
+		case PLAYER_AVATAR_STATE_SURFING:
+			spriteId = VarGet(VAR_PLAYER_SURFING);
+			break;
+		case PLAYER_AVATAR_STATE_FIELD_MOVE: //HM Use
+			spriteId = VarGet(VAR_PLAYER_HM_USE);
+			break;
+		case PLAYER_AVATAR_STATE_VS_SEEKER:
+			spriteId = VarGet(VAR_PLAYER_VS_SEEKER);
+			break;
+		case PLAYER_AVATAR_STATE_FISHING:
+			spriteId = VarGet(VAR_PLAYER_FISHING);
+			break;
+		case PLAYER_AVATAR_STATE_UNDERWATER:
+			spriteId = VarGet(VAR_PLAYER_UNDERWATER);
+			break;
 	}
 
 	return spriteId;
@@ -225,28 +224,28 @@ u16 GetPlayerAvatarGraphicsIdByStateId(u8 state)
 
 u8 GetPlayerAvatarStateTransitionByGraphicsId(u16 graphicsId, u8 gender)
 {
-	for (u8 state = 0; state < NELEMS(sPlayerAvatarGfxIds); ++state)
-	{
+    for (u8 state = 0; state < NELEMS(sPlayerAvatarGfxIds); ++state)
+    {
 		u16 customGraphicsId = GetCustomGraphicsIdByState(state);
 		if (customGraphicsId == graphicsId)
 			graphicsId = sPlayerAvatarGfxIds[state][gender].graphicsId;
 
-		if (sPlayerAvatarGfxIds[state][gender].graphicsId == graphicsId)
-			return sPlayerAvatarGfxIds[state][gender].stateFlag;
-	}
+        if (sPlayerAvatarGfxIds[state][gender].graphicsId == graphicsId)
+            return sPlayerAvatarGfxIds[state][gender].stateFlag;
+    }
 
-	return PLAYER_AVATAR_FLAG_ON_FOOT;
+    return PLAYER_AVATAR_FLAG_ON_FOOT;
 }
 
 u16 GetPlayerAvatarGraphicsIdByCurrentState(void)
 {
 	u8 state = 0;
 	u8 gender = gPlayerAvatar->gender;
-	u8 flags = gPlayerAvatar->flags;
+    u8 flags = gPlayerAvatar->flags;
 
-	for (; state < NELEMS(sPlayerAvatarGfxIds); ++state)
-	{
-		if (sPlayerAvatarGfxIds[state][gender].stateFlag & flags)
+    for (; state < NELEMS(sPlayerAvatarGfxIds); ++state)
+    {
+        if (sPlayerAvatarGfxIds[state][gender].stateFlag & flags)
 		{
 			u16 graphicsId = sPlayerAvatarGfxIds[state][gender].graphicsId;
 			u16 customGraphicsId = GetCustomGraphicsIdByState(state);
@@ -255,15 +254,15 @@ u16 GetPlayerAvatarGraphicsIdByCurrentState(void)
 
 			return graphicsId;
 		}
-	}
+    }
 
-	return sPlayerAvatarGfxIds[0][0].graphicsId;
+    return sPlayerAvatarGfxIds[0][0].graphicsId;
 }
 
 u8 GetPlayerAvatarGenderByGraphicsId(u8 gfxId)
 {
-	for (u8 state = 0; state < NELEMS(sPlayerAvatarGfxIds); ++state)
-	{
+    for (u8 state = 0; state < NELEMS(sPlayerAvatarGfxIds); ++state)
+    {
 		for (u8 gender = 0; gender < NELEMS(sPlayerAvatarGfxIds[0]); ++gender)
 		{
 			if (sPlayerAvatarGfxIds[state][gender].graphicsId == gfxId)
@@ -280,29 +279,30 @@ u8 GetPlayerAvatarGenderByGraphicsId(u8 gfxId)
 
 static void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u8 b)
 {
-	u8 unk = GetPlayerAvatarStateTransitionByGraphicsId(graphicsId, gPlayerAvatar->gender);
+    u8 unk = GetPlayerAvatarStateTransitionByGraphicsId(graphicsId, gPlayerAvatar->gender);
 	SetPlayerAvatarTransitionFlags(unk | b);
 }
 
-u16 GetEventObjectGraphicsId(struct EventObject *eventObj)
+u16 GetEventObjectGraphicsId(struct EventObject* eventObj)
 {
 	u8 lowerByte = eventObj->graphicsIdLowerByte;
 	u8 upperByte = eventObj->graphicsIdUpperByte;
 
-#ifndef EXISTING_OW_TABLE_ADDRESS
-	if (upperByte >= NELEMS(gOverworldTableSwitcher) && upperByte != 0xFF) // Dynamic OW table
+	#ifndef EXISTING_OW_TABLE_ADDRESS
+	if (upperByte >= NELEMS(gOverworldTableSwitcher)
+	&& upperByte != 0xFF) //Dynamic OW table
 		return lowerByte;
-#endif
+	#endif
 
 	return lowerByte | (upperByte << 8);
 }
 
 void SetPlayerAvatarEventObjectIdAndObjectId(u8 eventObjectId, u8 spriteId)
 {
-	gPlayerAvatar->eventObjectId = eventObjectId;
-	gPlayerAvatar->spriteId = spriteId;
-	gPlayerAvatar->gender = GetPlayerAvatarGenderByGraphicsId(GetEventObjectGraphicsId(&gEventObjects[eventObjectId]));
-	SetPlayerAvatarExtraStateTransition(GetEventObjectGraphicsId(&gEventObjects[eventObjectId]), 0x20);
+    gPlayerAvatar->eventObjectId = eventObjectId;
+    gPlayerAvatar->spriteId = spriteId;
+    gPlayerAvatar->gender = GetPlayerAvatarGenderByGraphicsId(GetEventObjectGraphicsId(&gEventObjects[eventObjectId]));
+    SetPlayerAvatarExtraStateTransition(GetEventObjectGraphicsId(&gEventObjects[eventObjectId]), 0x20);
 }
 
 // load trainer card sprite based on variables
@@ -322,7 +322,7 @@ u8 PlayerGenderToFrontTrainerPicId(u8 gender, bool8 modify)
 void InitPlayerAvatar(s16 x, s16 y, u8 direction, u8 gender)
 {
 	u8 eventObjectId;
-	struct EventObject *eventObject;
+	struct EventObject* eventObject;
 	struct EventObjectTemplate playerEventObjTemplate = {0};
 	u16 graphicsId = GetPlayerAvatarGraphicsIdByStateIdAndGender(PLAYER_AVATAR_STATE_NORMAL, gender);
 
@@ -376,8 +376,8 @@ void PlayerHandleDrawTrainerPic(void)
 
 	gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = gActiveBattler;
 	gSprites[gBattlerSpriteIds[gActiveBattler]].pos2.x = 240;
-	gSprites[gBattlerSpriteIds[gActiveBattler]].data[0] = -3;			//-2; //Speed scrolling in
-	gSprites[gBattlerSpriteIds[gActiveBattler]].callback = sub_8033EEC; // sub_805D7AC in Emerald
+	gSprites[gBattlerSpriteIds[gActiveBattler]].data[0] = -3; //-2; //Speed scrolling in
+	gSprites[gBattlerSpriteIds[gActiveBattler]].callback = sub_8033EEC; //sub_805D7AC in Emerald
 
 	gBattlerControllerFuncs[gActiveBattler] = sub_802F730;
 }
@@ -404,7 +404,8 @@ u16 GetBackspriteId(void)
 
 	if (gBattleTypeFlags & BATTLE_TYPE_LINK)
 	{
-		if ((gLinkPlayers[GetMultiplayerId()].version & 0xFF) == VERSION_FIRE_RED || (gLinkPlayers[GetMultiplayerId()].version & 0xFF) == VERSION_LEAF_GREEN)
+		if ((gLinkPlayers[GetMultiplayerId()].version & 0xFF) == VERSION_FIRE_RED
+		|| (gLinkPlayers[GetMultiplayerId()].version & 0xFF) == VERSION_LEAF_GREEN)
 			trainerPicId = gLinkPlayers[GetMultiplayerId()].gender;
 		else
 			trainerPicId = gLinkPlayers[GetMultiplayerId()].gender + BACK_PIC_BRENDAN;
@@ -415,7 +416,7 @@ u16 GetBackspriteId(void)
 	}
 	else if (gBattleTypeFlags & BATTLE_TYPE_BATTLE_SANDS)
 	{
-		trainerPicId = LoadPartnerBackspriteIndex(); // The trainer's backsprite for the Battle Sands is stored in the multi partner var
+		trainerPicId = LoadPartnerBackspriteIndex(); //The trainer's backsprite for the Battle Sands is stored in the multi partner var
 	}
 	else
 	{
@@ -430,26 +431,26 @@ u16 GetBackspriteId(void)
 
 void LoadTrainerBackPal(u16 trainerPicId, u8 paletteNum)
 {
-#ifdef UNBOUND
-	// Changes the skin tones of the player character in Unbound
-	u16 owNum = VarGet(VAR_PLAYER_WALKRUN);
+	#ifdef UNBOUND
+	//Changes the skin tones of the player character in Unbound
+		u16 owNum = VarGet(VAR_PLAYER_WALKRUN);
 
-	if (VarGet(VAR_PLAYER_WALKRUN) && gActiveBattler == 0 && (trainerPicId == TRAINER_BACK_PIC_RED || trainerPicId == TRAINER_BACK_PIC_LEAF))
-	{
-		for (int i = 0; sCharacterPalSwitchTable[i].owNum != 0xFFFF; ++i)
+		if (VarGet(VAR_PLAYER_WALKRUN) && gActiveBattler == 0 && (trainerPicId == TRAINER_BACK_PIC_RED || trainerPicId == TRAINER_BACK_PIC_LEAF))
 		{
-			if (sCharacterPalSwitchTable[i].owNum == owNum)
+			for (int i = 0; sCharacterPalSwitchTable[i].owNum != 0xFFFF; ++i)
 			{
-				LoadCompressedPalette(sCharacterPalSwitchTable[i].backSpritePal, 0x100 + paletteNum * 16, 32);
-				break;
+				if (sCharacterPalSwitchTable[i].owNum == owNum)
+				{
+					LoadCompressedPalette(sCharacterPalSwitchTable[i].backSpritePal, 0x100 + paletteNum * 16, 32);
+					break;
+				}
 			}
 		}
-	}
-	else
+		else
+			DecompressTrainerBackPic(trainerPicId, paletteNum);
+	#else
 		DecompressTrainerBackPic(trainerPicId, paletteNum);
-#else
-	DecompressTrainerBackPic(trainerPicId, paletteNum);
-#endif
+	#endif
 }
 
 void TryUpdateTrainerPicPalTrainerCard(u16 trainerPicId, u16 palOffset)
@@ -457,13 +458,14 @@ void TryUpdateTrainerPicPalTrainerCard(u16 trainerPicId, u16 palOffset)
 	LoadCompressedPalette(GetTrainerSpritePal(trainerPicId), palOffset * 0x10, 0x20);
 }
 
-const u8 *GetTrainerSpritePal(u16 trainerPicId)
+const u8* GetTrainerSpritePal(u16 trainerPicId)
 {
-#ifdef UNBOUND
-	const u8 *palette;
+	#ifdef UNBOUND
+	const u8* palette;
 	if (VarGet(VAR_PLAYER_WALKRUN) != 0)
 	{
-		if ((gSaveBlock2->playerGender == FEMALE && VarGet(VAR_TRAINERCARD_FEMALE) == 0) || (gSaveBlock2->playerGender != FEMALE && VarGet(VAR_TRAINERCARD_MALE) == 0))
+		if ((gSaveBlock2->playerGender == FEMALE && VarGet(VAR_TRAINERCARD_FEMALE) == 0)
+		||  (gSaveBlock2->playerGender != FEMALE && VarGet(VAR_TRAINERCARD_MALE) == 0))
 		{
 			if (trainerPicId == TRAINER_PIC_PLAYER_M || trainerPicId == TRAINER_PIC_PLAYER_F)
 			{
@@ -472,13 +474,13 @@ const u8 *GetTrainerSpritePal(u16 trainerPicId)
 			}
 		}
 	}
-#endif
+	#endif
 
 	return gTrainerFrontPicPaletteTable[trainerPicId].data;
 }
 
 #ifdef UNBOUND
-static const u8 *GetAlternateTrainerSpritePal(void)
+static const u8* GetAlternateTrainerSpritePal(void)
 {
 	u16 owNum = VarGet(VAR_PLAYER_WALKRUN);
 

@@ -82,13 +82,10 @@ gAbilityDescriptions:
 .word 0x824fa71		@ABILITY_ARENATRAP
 .word 0x824fa83		@ABILITY_VITALSPIRIT
 .word 0x824fa93		@ABILITY_WHITESMOKE
-.word DESC_NEUTRALIZINGGAS		@Old: ABILITY_PUREPOWER ;adjusting to neutralizing instead of neutralising
+.word DESC_NEUTRALISINGGAS		@Old: ABILITY_PUREPOWER
 .word 0x824fabe		@ABILITY_SHELLARMOR
-;.word DESC_HUNGERSWITCH		@Old: ABILITY_CACOPHONY
+.word DESC_HUNGERSWITCH		@Old: ABILITY_CACOPHONY
 .word 0x824faee		@ABILITY_AIRLOCK
-
-;need to implement the appropriate amount of words depending on byte count here
-;add timeswap, guardianangel, deter- need to calculate the word address
 
 .word DESC_SWEETVEIL
 .word DESC_SKILLLINK
@@ -250,10 +247,20 @@ gAbilityDescriptions:
 .word DESC_POWEROFALCHEMY
 .word DESC_NEUROFORCE
 .word DESC_GALVANIZE
-.word DESC_LIQUIFY
-.word DESC_CONCRETE
-.word DESC_INTOXICATE
-.word DESC_SYNTHESIZE
-.word DESC_INCINERATE
-.word DESC_INNEREYE
-;add liquify, concrete, intoxicate, synthesize, incincerate, inner eye
+.word DESC_INTREPIDSWORD
+.word DESC_DAUNTLESSSHIELD
+.word DESC_BALLFETCH
+.word DESC_COTTONDOWN
+.word DESC_MIRRORARMOR
+.word DESC_GULPMISSILE
+.word DESC_STALWART
+.word DESC_STEAMENGINE
+.word DESC_PUNKROCK
+.word DESC_SANDSPIT
+.word DESC_ICESCALES
+.word DESC_RIPEN
+.word DESC_ICEFACE
+.word DESC_POWERSPOT
+.word DESC_MIMICRY
+.word DESC_SCREENCLEANER
+.word DESC_PASTEL_VEIL
