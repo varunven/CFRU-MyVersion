@@ -188,11 +188,7 @@
 #define ITEM_SOOTHE_BELL 184
 #define ITEM_MENTAL_HERB 185 // Makes user immune to taunt without being used up
 
-#ifdef UNBOUND
-#define ITEM_CHOICE_BAND 0xB0 // For Unbound
-#else
 #define ITEM_CHOICE_BAND 186
-#endif
 
 #define ITEM_KINGS_ROCK 187
 #define ITEM_SILVER_POWDER 188
@@ -482,12 +478,12 @@
 #define ITEM_SAIL_FOSSIL 0x20E
 
 // EV Gain Items
-#define ITEM_POWER_BRACER 0xF4
-#define ITEM_POWER_BELT 0xF5
-#define ITEM_POWER_LENS 0xF6
-#define ITEM_POWER_BAND 0xF7
-#define ITEM_POWER_ANKLET 0xF8
-#define ITEM_POWER_WEIGHT 0xF9
+#define ITEM_VACUUM_CLEANER 0xF4  // Originally Power Bracer, Now clears hazards on first entry
+#define ITEM_PRANK_KIT 0xF5		  // Originally Power Belt, Now gives first status move prankster
+#define ITEM_TOOTH_FOSSIL 0xF6	  // Originally Power Lens, Now basilosaurus pokemon
+#define ITEM_WING_FOSSIL 0xF7	  // Originally Power Band, Now pterodactyl pokemon
+#define ITEM_CROOK_AND_FLAIL 0xF8 // Originally Power Anklet, Now Boosts Lucario Atk, SpAtk by 1
+#define ITEM_KALEIDOSCOPE 0xF9	  // Originally Power Weight, Now randomizes type on first switch-in
 
 // New Battle Hold Items
 #define ITEM_ADAMANT_ORB 0x214

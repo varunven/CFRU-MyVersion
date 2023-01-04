@@ -56,7 +56,7 @@
 #define ABILITY_INTOXICATE 0x35 // Originally Pickup, Now Poison Pixilate
 #define ABILITY_TRUANT 0x36
 #define ABILITY_HUSTLE 0x37
-#define ABILITY_CUTECHARM 0x38
+#define ABILITY_SHARPNESS 0x38 // Originally Cute Charm, Now Sharpness
 #define ABILITY_PLUS 0x39
 #define ABILITY_MINUS 0x3A
 #define ABILITY_FORECAST 0x3B
