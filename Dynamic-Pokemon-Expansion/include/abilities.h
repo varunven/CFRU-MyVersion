@@ -53,7 +53,7 @@
 #define ABILITY_RUNAWAY 0x32
 #define ABILITY_KEENEYE 0x33
 #define ABILITY_HYPERCUTTER 0x34
-#define ABILITY_INTOXICATE 0x35 // Originally Pickup
+#define ABILITY_INTOXICATE 0x35 // Originally Pickup, Now Poison Pixilate
 #define ABILITY_TRUANT 0x36
 #define ABILITY_HUSTLE 0x37
 #define ABILITY_CUTECHARM 0x38
@@ -106,7 +106,7 @@
 #define ABILITY_DOWNLOAD 0x67
 #define ABILITY_POISONHEAL 0x68
 #define ABILITY_ICEBODY 0x69
-#define ABILITY_INNEREYE 0x6A // Originally Moody
+#define ABILITY_INNEREYE 0x6A // Originally Moody, Now ignores all type immunities
 #define ABILITY_HYDRATION 0x6B
 #define ABILITY_HEALER 0x6C
 #define ABILITY_SNOWCLOAK 0x6D
@@ -138,13 +138,13 @@
 #define ABILITY_REFRIGERATE 0x87
 #define ABILITY_PIXILATE 0x88
 #define ABILITY_AERILATE 0x89
-#define ABILITY_IGNITE 0x8A // Originally Normalize
+#define ABILITY_IGNITE 0x8A // Originally Normalize, Now Fire Pixilate
 #define ABILITY_UNBURDEN 0x8B
 #define ABILITY_SIMPLE 0x8C
 #define ABILITY_UNAWARE 0x8D
 #define ABILITY_DEFIANT 0x8E
 #define ABILITY_COMPETITIVE 0x8F
-#define ABILITY_DETER 0x90 // Originally Defeatist
+#define ABILITY_DETER 0x90 // Originally Defeatist, Now Special Intimidate
 #define ABILITY_SLOWSTART 0x91
 #define ABILITY_TOXICBOOST 0x92
 #define ABILITY_FLAREBOOST 0x93
@@ -179,7 +179,7 @@
 #define ABILITY_TRIAGE 0xB0
 #define ABILITY_WATERBUBBLE 0xB1
 #define ABILITY_WATERCOMPACTION 0xB2
-#define ABILITY_SYNTHESIZE 0xB3 // Originally Stall
+#define ABILITY_SYNTHESIZE 0xB3 // Originally Stall, Now Grass Pixilate
 #define ABILITY_MULTITYPE 0xB4
 #define ABILITY_ELECTRICSURGE 0xB5
 #define ABILITY_GRASSYSURGE 0xB6
@@ -204,7 +204,7 @@
 #define ABILITY_AROMAVEIL 0xC9
 #define ABILITY_FLOWERVEIL 0xCA
 #define ABILITY_LEAFGUARD 0xCB
-#define ABILITY_CONCRETE 0xCC // Originally Klutz
+#define ABILITY_CONCRETE 0xCC // Originally Klutz, Now Rock Pixilate
 #define ABILITY_FLOWERGIFT 0xCD
 #define ABILITY_BADDREAMS 0xCE
 #define ABILITY_PICKPOCKET 0xCF
@@ -218,12 +218,12 @@
 #define ABILITY_GORILLATACTICS 0xD7
 #define ABILITY_BERSERK 0xD8
 #define ABILITY_LONGREACH 0xD9
-#define ABILITY_LIQUIFY 0xDA // Originally Liquid Voice
+#define ABILITY_LIQUIFY 0xDA // Originally Liquid Voice, Now Water Pixilate
 #define ABILITY_QUEENLYMAJESTY 0xDB
 #define ABILITY_INNARDSOUT 0xDC
 #define ABILITY_DAZZLING 0xDD
 #define ABILITY_GLUTTONY 0xDE
-#define ABILITY_GUARDIANANGEL 0xDF // Originally Honey Gather
+#define ABILITY_GUARDIANANGEL 0xDF // Originally Honey Gather, Now Immune to Fairy
 #define ABILITY_FRIENDGUARD 0xE0
 #define ABILITY_HARVEST 0xE1
 #define ABILITY_TELEPATHY 0xE2
@@ -240,7 +240,7 @@
 #define ABILITY_GALVANIZE 0xED
 #define ABILITY_INTREPIDSWORD 0xEE
 #define ABILITY_DAUNTLESSSHIELD 0xEF
-#define ABILITY_TIMESWAP 0xF0 // Originally Ball Fetch
+#define ABILITY_TIMESWAP 0xF0 // Originally Ball Fetch, Now extends Trick Room
 #define ABILITY_COTTONDOWN 0xF1
 #define ABILITY_MIRRORARMOR 0xF2
 #define ABILITY_GULPMISSLE 0xF3
