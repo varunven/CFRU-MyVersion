@@ -32,3 +32,7 @@ files to update:
     z_effect_battle_scripts.s -> remove all references to z moves
     ability_description_tables.s -> add references to abilities, remove gen 8
     ability_tables.s -> removed gen 8
+
+new type changes:
+bug super on fairy
+rock, grass resist ghost

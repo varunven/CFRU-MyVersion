@@ -35,7 +35,7 @@
 #define ABILITY_SERENEGRACE 0x20
 #define ABILITY_SWIFTSWIM 0x21
 #define ABILITY_CHLOROPHYLL 0x22
-#define ABILITY_ILLUMINATE 0x23
+#define ABILITY_ILLUMINATE 0x23 // Now Compound Eyes
 #define ABILITY_TRACE 0x24
 #define ABILITY_HUGEPOWER 0x25 // Also Pure Power
 #define ABILITY_POISONPOINT 0x26
@@ -158,7 +158,7 @@
 #define ABILITY_ZENMODE 0x9B
 #define ABILITY_BATTLEBOND 0x9C
 #define ABILITY_BEASTBOOST 0x9D
-#define ABILITY_CORROSION 0x9E
+#define ABILITY_CORROSION 0x9E // Now poison moves hit steel types
 #define ABILITY_DISGUISE 0x9F
 #define ABILITY_EMERGENCYEXIT 0xA0 // Also Wimp Out
 #define ABILITY_FLUFFY 0xA1
@@ -204,8 +204,8 @@
 #define ABILITY_AROMAVEIL 0xC9
 #define ABILITY_FLOWERVEIL 0xCA
 #define ABILITY_LEAFGUARD 0xCB
-#define ABILITY_CONCRETE 0xCC // Originally Klutz, Now Rock Pixilate
-#define ABILITY_FLOWERGIFT 0xCD
+#define ABILITY_CONCRETE 0xCC   // Originally Klutz, Now Rock Pixilate
+#define ABILITY_FLOWERGIFT 0xCD // Now boosts al offensive stats
 #define ABILITY_BADDREAMS 0xCE
 #define ABILITY_PICKPOCKET 0xCF
 #define ABILITY_PORTALPOWER 0xD0
@@ -252,6 +252,6 @@
 #define ABILITY_RIPEN 0xF9
 #define ABILITY_ICEFACE 0xFA
 #define ABILITY_POWERSPOT 0xFB
-#define ABILITY_MIMICRY 0xFC
+#define ABILITY_EARTHEATER 0xFC // Originally Mimicry, Now Earth Eater
 #define ABILITY_SCREENCLEANER 0xFD
-#define ABILITY_PASTELVEIL 0xFE
+#define ABILITY_MOUNTAINEER 0xFE // Originally Pastel Veil, Now Mountaineer

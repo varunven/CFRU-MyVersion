@@ -691,7 +691,7 @@
 #define ITEM_SHOCK_DRIVE 0x27C
 #define ITEM_CHILL_DRIVE 0x27D
 
-// Silvally Memories
+// Silvally Memories - Now buffs power of memory-type moves by 1.5
 #define ITEM_FIGHTING_MEMORY 0x27E
 #define ITEM_FLYING_MEMORY 0x27F
 #define ITEM_POISON_MEMORY 0x280
