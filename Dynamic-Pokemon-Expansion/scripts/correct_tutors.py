@@ -44,6 +44,8 @@ def add_new_line_to_end_tutors(update_tutor_list=False):
                     txt.write(OUTRAGE_POKEMON)
                 elif(tutor == IRONHEAD_FILE):
                     txt.write(IRONHEAD_POKEMON)
+                elif(tutor == CLOSECOMBAT_FILE):
+                    txt.write(CLOSECOMBAT_POKEMON)
 
 
 update_tutor_list = True
