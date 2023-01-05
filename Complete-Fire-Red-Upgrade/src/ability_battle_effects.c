@@ -70,7 +70,7 @@ const s8 gAbilityRatings[ABILITIES_COUNT] =
 		[ABILITY_CONTRARY] = 8,
 		[ABILITY_CORROSION] = 5,
 		[ABILITY_CURSEDBODY] = 4,
-		[ABILITY_CUTECHARM] = 2,
+		// [ABILITY_CUTECHARM] = 2,
 		[ABILITY_DAMP] = 2,
 		[ABILITY_DANCER] = 5,
 		[ABILITY_DARKAURA] = 6,
@@ -1714,15 +1714,15 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
 			}
 			break;
 
-		case ABILITY_CUTECHARM:
-			if (MOVE_HAD_EFFECT && TOOK_DAMAGE(bank) && BATTLER_ALIVE(gBankAttacker) && BATTLER_ALIVE(bank) && gBankAttacker != bank && CheckContact(move, gBankAttacker) && umodsi(Random(), 3) == 0 && ABILITY(gBankAttacker) != ABILITY_OBLIVIOUS && ABILITY(gBankAttacker) != ABILITY_AROMAVEIL && !(IS_DOUBLE_BATTLE && ABILITY(PARTNER(gBankAttacker)) == ABILITY_AROMAVEIL) && GetGenderFromSpeciesAndPersonality(speciesAtk, pidAtk) != GetGenderFromSpeciesAndPersonality(speciesDef, pidDef) && !(gBattleMons[gBankAttacker].status2 & STATUS2_INFATUATION) && GetGenderFromSpeciesAndPersonality(speciesAtk, pidAtk) != MON_GENDERLESS && GetGenderFromSpeciesAndPersonality(speciesDef, pidDef) != MON_GENDERLESS)
-			{
-				gBattleMons[gBankAttacker].status2 |= STATUS2_INFATUATED_WITH(gBankTarget);
-				BattleScriptPushCursor();
-				gBattlescriptCurrInstr = BattleScript_CuteCharmActivates;
-				effect++;
-			}
-			break;
+			// case ABILITY_CUTECHARM:
+			// 	if (MOVE_HAD_EFFECT && TOOK_DAMAGE(bank) && BATTLER_ALIVE(gBankAttacker) && BATTLER_ALIVE(bank) && gBankAttacker != bank && CheckContact(move, gBankAttacker) && umodsi(Random(), 3) == 0 && ABILITY(gBankAttacker) != ABILITY_OBLIVIOUS && ABILITY(gBankAttacker) != ABILITY_AROMAVEIL && !(IS_DOUBLE_BATTLE && ABILITY(PARTNER(gBankAttacker)) == ABILITY_AROMAVEIL) && GetGenderFromSpeciesAndPersonality(speciesAtk, pidAtk) != GetGenderFromSpeciesAndPersonality(speciesDef, pidDef) && !(gBattleMons[gBankAttacker].status2 & STATUS2_INFATUATION) && GetGenderFromSpeciesAndPersonality(speciesAtk, pidAtk) != MON_GENDERLESS && GetGenderFromSpeciesAndPersonality(speciesDef, pidDef) != MON_GENDERLESS)
+			// 	{
+			// 		gBattleMons[gBankAttacker].status2 |= STATUS2_INFATUATED_WITH(gBankTarget);
+			// 		BattleScriptPushCursor();
+			// 		gBattlescriptCurrInstr = BattleScript_CuteCharmActivates;
+			// 		effect++;
+			// 	}
+			// 	break;
 
 		case ABILITY_JUSTIFIED:
 			if (MOVE_HAD_EFFECT && TOOK_DAMAGE(bank) && BATTLER_ALIVE(bank) && gBankAttacker != bank && moveType == TYPE_DARK && gBattleMons[bank].statStages[STAT_ATK - 1] < 12)
