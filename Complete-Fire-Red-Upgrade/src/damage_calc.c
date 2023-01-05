@@ -1227,8 +1227,8 @@ u8 GetMoveTypeSpecialPostAbility(u16 move, u8 atkAbility, bool8 zMoveActive)
 		// Change non-Normal-type moves
 		switch (atkAbility)
 		{
-		case ABILITY_NORMALIZE:
-			return TYPE_NORMAL;
+		// case ABILITY_NORMALIZE:
+		// 	return TYPE_NORMAL;
 		case ABILITY_LIQUIDVOICE:
 			if (CheckSoundMove(move)) // Change Sound Moves
 				return TYPE_WATER;
@@ -1277,7 +1277,8 @@ static bool8 AbilityCanChangeTypeAndBoost(u16 move, u8 atkAbility, u8 electrifyT
 	}
 
 	// Check non-Normal-type moves
-	return atkAbility == ABILITY_NORMALIZE && moveTypeCanBeChanged;
+	// return atkAbility == ABILITY_NORMALIZE && moveTypeCanBeChanged;
+	return false;
 }
 
 u8 GetExceptionMoveType(u8 bankAtk, u16 move)
@@ -3111,7 +3112,7 @@ static u16 AdjustBasePower(struct DamageCalc *data, u16 power)
 	case ABILITY_PIXILATE:
 	case ABILITY_REFRIGERATE:
 	case ABILITY_GALVANIZE:
-	case ABILITY_NORMALIZE:
+		// case ABILITY_NORMALIZE:
 		// 1.2x / 1.3x Boost
 		if ((!useMonAtk && AbilityCanChangeTypeAndBoost(move, data->atkAbility, gNewBS->ElectrifyTimers[bankAtk], TRUE, (gNewBS->zMoveData.active || gNewBS->zMoveData.viewing))) || (useMonAtk && AbilityCanChangeTypeAndBoost(move, data->atkAbility, 0, FALSE, FALSE)))
 		{
