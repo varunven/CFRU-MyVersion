@@ -153,25 +153,30 @@ void ClearBattlerAbilityHistory(u8 bank)
 
 item_effect_t GetBankItemEffect(u8 bank)
 {
-	if (ABILITY(bank) != ABILITY_KLUTZ && !gNewBS->EmbargoTimers[bank] && !IsMagicRoomActive())
+	// if (ABILITY(bank) != ABILITY_KLUTZ && !gNewBS->EmbargoTimers[bank] && !IsMagicRoomActive())
+	// 	return ItemId_GetHoldEffect(ITEM(bank));
+	if (!gNewBS->EmbargoTimers[bank] && !IsMagicRoomActive())
 		return ItemId_GetHoldEffect(ITEM(bank));
-
 	return 0;
 }
 
 item_effect_t GetMonItemEffect(struct Pokemon *mon)
 {
-	if (GetMonAbility(mon) != ABILITY_KLUTZ && !IsMagicRoomActive())
+	// if (GetMonAbility(mon) != ABILITY_KLUTZ && !IsMagicRoomActive())
+	// 	return ItemId_GetHoldEffect(GetMonData(mon, MON_DATA_HELD_ITEM, NULL));
+	if (!IsMagicRoomActive())
 		return ItemId_GetHoldEffect(GetMonData(mon, MON_DATA_HELD_ITEM, NULL));
-
 	return 0;
 }
 
 item_effect_t GetRecordedItemEffect(u8 bank)
 {
-	if (GetRecordedAbility(bank) != ABILITY_KLUTZ && !gNewBS->EmbargoTimers[bank] && !IsMagicRoomActive() && ITEM(bank) != ITEM_NONE) // Can't have an effect if you have no item
+	// if (GetRecordedAbility(bank) != ABILITY_KLUTZ && !gNewBS->EmbargoTimers[bank] && !IsMagicRoomActive() && ITEM(bank) != ITEM_NONE) // Can't have an effect if you have no item
+	// 	return gNewBS->ai.itemEffects[bank];
+	if (!gNewBS->EmbargoTimers[bank] && !IsMagicRoomActive() && ITEM(bank) != ITEM_NONE) // Can't have an effect if you have no item
 		return gNewBS->ai.itemEffects[bank];
-
+	if (!gNewBS->EmbargoTimers[bank] && !IsMagicRoomActive() && ITEM(bank) != ITEM_NONE) // Can't have an effect if you have no item
+		return gNewBS->ai.itemEffects[bank];
 	return 0;
 }
 
@@ -277,9 +282,10 @@ bool8 CheckGroundingFromPartyData(struct Pokemon *mon)
 	u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
 	u16 item = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
 
-	if (IsGravityActive() || (ItemId_GetHoldEffect(item) == ITEM_EFFECT_IRON_BALL && GetMonAbility(mon) != ABILITY_KLUTZ))
+	// if (IsGravityActive() || (ItemId_GetHoldEffect(item) == ITEM_EFFECT_IRON_BALL && GetMonAbility(mon) != ABILITY_KLUTZ))
+	// 	return GROUNDED;
+	if (IsGravityActive() || (ItemId_GetHoldEffect(item) == ITEM_EFFECT_IRON_BALL))
 		return GROUNDED;
-
 	else if (GetMonAbility(mon) == ABILITY_LEVITATE || gBaseStats[species].type1 == TYPE_FLYING || gBaseStats[species].type2 == TYPE_FLYING)
 		return IN_AIR;
 	return GROUNDED;
@@ -994,9 +1000,10 @@ bool8 CanFling(u16 item, u16 species, u8 ability, u8 bankOnSide, u8 embargoTimer
 {
 	u8 itemEffect = ItemId_GetHoldEffect(item);
 
-	if (item == ITEM_NONE || ability == ABILITY_KLUTZ || IsMagicRoomActive() || embargoTimer != 0 || !CanTransferItem(species, item) || itemEffect == ITEM_EFFECT_PRIMAL_ORB || itemEffect == ITEM_EFFECT_GEM || itemEffect == ITEM_EFFECT_ABILITY_CAPSULE || (IsBerry(item) && AbilityBattleEffects(ABILITYEFFECT_CHECK_OTHER_SIDE, bankOnSide, ABILITY_UNNERVE, 0, 0)) || GetPocketByItemId(item) == POCKET_POKE_BALLS)
+	// if (item == ITEM_NONE || ability == ABILITY_KLUTZ || IsMagicRoomActive() || embargoTimer != 0 || !CanTransferItem(species, item) || itemEffect == ITEM_EFFECT_PRIMAL_ORB || itemEffect == ITEM_EFFECT_GEM || itemEffect == ITEM_EFFECT_ABILITY_CAPSULE || (IsBerry(item) && AbilityBattleEffects(ABILITYEFFECT_CHECK_OTHER_SIDE, bankOnSide, ABILITY_UNNERVE, 0, 0)) || GetPocketByItemId(item) == POCKET_POKE_BALLS)
+	// 	return FALSE;
+	if (item == ITEM_NONE || IsMagicRoomActive() || embargoTimer != 0 || !CanTransferItem(species, item) || itemEffect == ITEM_EFFECT_PRIMAL_ORB || itemEffect == ITEM_EFFECT_GEM || itemEffect == ITEM_EFFECT_ABILITY_CAPSULE || (IsBerry(item) && AbilityBattleEffects(ABILITYEFFECT_CHECK_OTHER_SIDE, bankOnSide, ABILITY_UNNERVE, 0, 0)) || GetPocketByItemId(item) == POCKET_POKE_BALLS)
 		return FALSE;
-
 	return TRUE;
 }
 
