@@ -1995,14 +1995,14 @@ static s32 CalculateBaseDamage(struct DamageCalc *data)
 			attack /= 2;
 		break;
 
-	case ABILITY_DEFEATIST:
-		// 0.5x Boost
-		if (data->atkHP <= (data->atkMaxHP / 2))
-		{
-			attack /= 2;
-			spAttack /= 2;
-		}
-		break;
+		// case ABILITY_DEFEATIST:
+		// 	// 0.5x Boost
+		// 	if (data->atkHP <= (data->atkMaxHP / 2))
+		// 	{
+		// 		attack /= 2;
+		// 		spAttack /= 2;
+		// 	}
+		// 	break;
 
 	case ABILITY_FLASHFIRE:
 		// 1.5x Boost
