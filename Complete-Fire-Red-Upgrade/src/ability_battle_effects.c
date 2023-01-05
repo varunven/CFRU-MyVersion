@@ -276,7 +276,7 @@ const s8 gAbilityRatings[ABILITIES_COUNT] =
 		[ABILITY_ZENMODE] = -1,
 		[ABILITY_INTREPIDSWORD] = 3,
 		[ABILITY_DAUNTLESSSHIELD] = 3,
-		[ABILITY_BALLFETCH] = 0,
+		// [ABILITY_BALLFETCH] = 0,
 		[ABILITY_COTTONDOWN] = 3,
 		[ABILITY_MIRRORARMOR] = 6,
 		[ABILITY_GULPMISSLE] = 3,
@@ -1409,20 +1409,20 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
 				}
 				break;
 
-			case ABILITY_BALLFETCH:
-				if (gNewBS->failedThrownPokeBall != ITEM_NONE && SIDE(bank) == B_SIDE_PLAYER && ITEM(bank) == ITEM_NONE)
-				{
-					gLastUsedItem = ITEM(bank) = gNewBS->failedThrownPokeBall;
-					gNewBS->failedThrownPokeBall = ITEM_NONE;
+				// case ABILITY_BALLFETCH:
+				// 	if (gNewBS->failedThrownPokeBall != ITEM_NONE && SIDE(bank) == B_SIDE_PLAYER && ITEM(bank) == ITEM_NONE)
+				// 	{
+				// 		gLastUsedItem = ITEM(bank) = gNewBS->failedThrownPokeBall;
+				// 		gNewBS->failedThrownPokeBall = ITEM_NONE;
 
-					gActiveBattler = bank;
-					EmitSetMonData(0, REQUEST_HELDITEM_BATTLE, 0, 2, &gBattleMons[gActiveBattler].item);
-					MarkBufferBankForExecution(gActiveBattler);
+				// 		gActiveBattler = bank;
+				// 		EmitSetMonData(0, REQUEST_HELDITEM_BATTLE, 0, 2, &gBattleMons[gActiveBattler].item);
+				// 		MarkBufferBankForExecution(gActiveBattler);
 
-					BattleScriptPushCursorAndCallback(BattleScript_BallFetch);
-					++effect;
-				}
-				break;
+				// 		BattleScriptPushCursorAndCallback(BattleScript_BallFetch);
+				// 		++effect;
+				// 	}
+				// 	break;
 
 			case ABILITY_FORECAST:
 				effect = CastformDataTypeChange(bank);
