@@ -1227,6 +1227,16 @@ u8 GetMoveTypeSpecialPostAbility(u16 move, u8 atkAbility, bool8 zMoveActive)
 				return TYPE_FLYING;
 			case ABILITY_GALVANIZE:
 				return TYPE_ELECTRIC;
+			case ABILITY_INTOXICATE:
+				return TYPE_POISON;
+			case ABILITY_CONCRETE:
+				return TYPE_ROCK;
+			case ABILITY_LIQUIFY:
+				return TYPE_WATER;
+			case ABILITY_SYNTHESIZE:
+				return TYPE_GRASS;
+			case ABILITY_IGNITE:
+				return TYPE_FIRE;
 			}
 		}
 
@@ -1277,6 +1287,11 @@ u8 GetMoveTypeSpecialPostAbility(u16 move, u8 atkAbility, bool8 zMoveActive)
 				case ABILITY_PIXILATE:
 				case ABILITY_AERILATE:
 				case ABILITY_GALVANIZE:
+				case ABILITY_INTOXICATE:
+				case ABILITY_CONCRETE:
+				case ABILITY_LIQUIFY:
+				case ABILITY_SYNTHESIZE:
+				case ABILITY_IGNITE:
 					return TRUE;
 				}
 			}
@@ -3118,6 +3133,11 @@ u8 GetMoveTypeSpecialPostAbility(u16 move, u8 atkAbility, bool8 zMoveActive)
 		case ABILITY_PIXILATE:
 		case ABILITY_REFRIGERATE:
 		case ABILITY_GALVANIZE:
+		case ABILITY_INTOXICATE:
+		case ABILITY_CONCRETE:
+		case ABILITY_LIQUIFY:
+		case ABILITY_SYNTHESIZE:
+		case ABILITY_IGNITE:
 			// case ABILITY_NORMALIZE:
 			// 1.2x / 1.3x Boost
 			if ((!useMonAtk && AbilityCanChangeTypeAndBoost(move, data->atkAbility, gNewBS->ElectrifyTimers[bankAtk], TRUE, (gNewBS->zMoveData.active || gNewBS->zMoveData.viewing))) || (useMonAtk && AbilityCanChangeTypeAndBoost(move, data->atkAbility, 0, FALSE, FALSE)))

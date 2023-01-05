@@ -297,6 +297,11 @@ const s8 gAbilityRatings[ABILITIES_COUNT] =
 		[ABILITY_PERISH_BODY] = -1,
 		[ABILITY_WANDERING_SPIRIT] = 2,
 		[ABILITY_GORILLATACTICS] = 4,
+		[ABILITY_INTOXICATE] = 8,
+		[ABILITY_CONCRETE] = 8,
+		[ABILITY_LIQUIFY] = 8,
+		[ABILITY_SYNTHESIZE] = 8,
+		[ABILITY_IGNITE] = 8,
 };
 
 const bool8 gMoldBreakerIgnoredAbilities[] =
