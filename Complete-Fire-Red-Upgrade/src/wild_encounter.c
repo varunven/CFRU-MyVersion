@@ -708,12 +708,12 @@ u8 GetAbilityEncounterRateModType(void)
 		case ABILITY_INFILTRATOR:
 			sWildEncounterData.abilityEffect = 1;
 			break;
-		case ABILITY_ARENATRAP:
-		case ABILITY_ILLUMINATE:
-		case ABILITY_NOGUARD:
-		case ABILITY_SWARM:
-			sWildEncounterData.abilityEffect = 2;
-			break;
+		// case ABILITY_ARENATRAP:
+		// case ABILITY_ILLUMINATE:
+		// case ABILITY_NOGUARD:
+		// case ABILITY_SWARM:
+		// 	sWildEncounterData.abilityEffect = 2;
+		// 	break;
 		case ABILITY_SANDVEIL:
 			if (GetCurrentWeather() == WEATHER_SANDSTORM)
 				sWildEncounterData.abilityEffect = 1;

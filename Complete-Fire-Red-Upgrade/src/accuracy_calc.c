@@ -19,7 +19,7 @@ accuracy_calc.c
 
 extern const struct StatFractions gAccuracyStageRatios[];
 
-//This file's functions:
+// This file's functions:
 static bool8 AccuracyCalcHelper(move_t, u8 bankDef);
 static u32 AccuracyCalcPassDefAbilityItemEffect(u16 move, u8 bankAtk, u8 bankDef, u8 defAbility, u8 defEffect);
 
@@ -57,15 +57,11 @@ ACCURACY_CHECK_START:
 
 	if (move == 0xFFFE || move == 0xFFFF)
 	{
-		if (gStatuses3[gBankTarget] & STATUS3_ALWAYS_HITS
-		&& move == 0xFFFF
-		&& gDisableStructs[gBankTarget].bankWithSureHit == gBankAttacker)
+		if (gStatuses3[gBankTarget] & STATUS3_ALWAYS_HITS && move == 0xFFFF && gDisableStructs[gBankTarget].bankWithSureHit == gBankAttacker)
 		{
 			gBattlescriptCurrInstr += 7;
 		}
-		else if (gStatuses3[gBankTarget] & STATUS3_SEMI_INVULNERABLE
-			  && ABILITY(gBankAttacker) != ABILITY_NOGUARD
-			  && ABILITY(gBankTarget) != ABILITY_NOGUARD)
+		else if (gStatuses3[gBankTarget] & STATUS3_SEMI_INVULNERABLE && ABILITY(gBankAttacker) != ABILITY_NOGUARD && ABILITY(gBankTarget) != ABILITY_NOGUARD)
 		{
 			gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
 		}
@@ -76,14 +72,12 @@ ACCURACY_CHECK_START:
 	}
 	else
 	{
-		if (move == 0)	//If move isn't 0 its either Future Sight or Doom Desire
+		if (move == 0) // If move isn't 0 its either Future Sight or Doom Desire
 			move = gCurrentMove;
 
-		if (gNewBS->ParentalBondOn == 1
-		||  (gNewBS->MultiHitOn && (gBattleMoves[move].effect != EFFECT_TRIPLE_KICK
-						 || ABILITY(gBankAttacker) == ABILITY_SKILLLINK)))
+		if (gNewBS->ParentalBondOn == 1 || (gNewBS->MultiHitOn && (gBattleMoves[move].effect != EFFECT_TRIPLE_KICK || ABILITY(gBankAttacker) == ABILITY_SKILLLINK)))
 		{
-			//No acc checks for second hit of Parental Bond or multi hit moves
+			// No acc checks for second hit of Parental Bond or multi hit moves
 			gBattlescriptCurrInstr += 7;
 		}
 		else
@@ -94,7 +88,7 @@ ACCURACY_CHECK_START:
 
 			for (u32 bankDef = 0; bankDef < gBattlersCount; ++bankDef)
 			{
-				if (!calcSpreadMove) //Single target
+				if (!calcSpreadMove) // Single target
 					bankDef = gBankTarget;
 				else if (gNewBS->calculatedSpreadMoveAccuracy)
 				{
@@ -102,36 +96,32 @@ ACCURACY_CHECK_START:
 						gMoveResultFlags = gNewBS->ResultFlags[gBankTarget];
 					else
 						gMoveResultFlags = 0;
-					break; //Already calculated accuracy miss
+					break; // Already calculated accuracy miss
 				}
-				else if (!BATTLER_ALIVE(bankDef) || bankDef == gBankAttacker
-				|| (bankDef == PARTNER(gBankAttacker) && !(gBattleMoves[gCurrentMove].target & MOVE_TARGET_ALL))
-				|| (gNewBS->noResultString[bankDef] && gNewBS->noResultString[bankDef] != 2))
-					continue; //Don't bother with this target
+				else if (!BATTLER_ALIVE(bankDef) || bankDef == gBankAttacker || (bankDef == PARTNER(gBankAttacker) && !(gBattleMoves[gCurrentMove].target & MOVE_TARGET_ALL)) || (gNewBS->noResultString[bankDef] && gNewBS->noResultString[bankDef] != 2))
+					continue; // Don't bother with this target
 
-				if (!JumpIfMoveAffectedByProtect(move, gBankAttacker, bankDef, FALSE) //Don't jump yet, jump later
-				&& !AccuracyCalcHelper(move, bankDef))
+				if (!JumpIfMoveAffectedByProtect(move, gBankAttacker, bankDef, FALSE) // Don't jump yet, jump later
+					&& !AccuracyCalcHelper(move, bankDef))
 				{
 					u32 calc = AccuracyCalc(move, gBankAttacker, bankDef);
 					clearMicleBerryBits = TRUE;
-					
+
 					gStringBank = bankDef;
 
 					// final calculation
 					if (Random32() % 101 > calc)
 					{
-						gNewBS->ResultFlags[bankDef] = MOVE_RESULT_MISSED; //Overwrite old value which can include effectiveness
-						gNewBS->missStringId[bankDef] = gBattleCommunication[6] = 2; //STRINGID_PKMNAVOIDEDATTACK
+						gNewBS->ResultFlags[bankDef] = MOVE_RESULT_MISSED;			 // Overwrite old value which can include effectiveness
+						gNewBS->missStringId[bankDef] = gBattleCommunication[6] = 2; // STRINGID_PKMNAVOIDEDATTACK
 
 						if (atkItemEffect == ITEM_EFFECT_BLUNDER_POLICY)
 							gNewBS->activateBlunderPolicy = TRUE;
 
-						if (gCurrentMove == MOVE_DRAGONDARTS
-						&& !recalculatedDragonDarts //So don't jump back and forth between targets
-						&& CanTargetPartner(bankDef)
-						&& !TargetFullyImmuneToCurrMove(PARTNER(bankDef)))
+						if (gCurrentMove == MOVE_DRAGONDARTS && !recalculatedDragonDarts // So don't jump back and forth between targets
+							&& CanTargetPartner(bankDef) && !TargetFullyImmuneToCurrMove(PARTNER(bankDef)))
 						{
-							//Smart target to partner if miss
+							// Smart target to partner if miss
 							bankDef = PARTNER(bankDef);
 							recalculatedDragonDarts = TRUE;
 							gNewBS->ResultFlags[bankDef] &= ~MOVE_RESULT_MISSED;
@@ -141,17 +131,17 @@ ACCURACY_CHECK_START:
 				}
 
 				if (!calcSpreadMove)
-					break; //Only one target
+					break; // Only one target
 			}
 
 			if (gNewBS->ResultFlags[gBankTarget] & MOVE_RESULT_MISSED)
-				gMoveResultFlags = MOVE_RESULT_MISSED; //We only care about the miss, not effectiveness
+				gMoveResultFlags = MOVE_RESULT_MISSED; // We only care about the miss, not effectiveness
 			else if (calcSpreadMove)
 				gMoveResultFlags = 0;
 
 			gNewBS->calculatedSpreadMoveAccuracy = TRUE;
-			if (clearMicleBerryBits) //Micle Berry was used in some calculation
-				gNewBS->MicleBerryBits &= ~gBitTable[gBankAttacker]; //Clear Micle Berry bit
+			if (clearMicleBerryBits)								 // Micle Berry was used in some calculation
+				gNewBS->MicleBerryBits &= ~gBitTable[gBankAttacker]; // Clear Micle Berry bit
 
 			JumpIfMoveFailed(7, move);
 		}
@@ -160,8 +150,8 @@ ACCURACY_CHECK_START:
 
 bool8 JumpIfMoveAffectedByProtect(u16 move, u8 bankAtk, u8 bankDef, bool8 actuallyJump)
 {
-	if ((IsAnyMaxMove(move) && !IsDynamaxed(bankDef)) //Otherwise using a Max Move on Max Guard
-	|| (gNewBS->zMoveData.active && SPLIT(move) != SPLIT_STATUS))
+	if ((IsAnyMaxMove(move) && !IsDynamaxed(bankDef)) // Otherwise using a Max Move on Max Guard
+		|| (gNewBS->zMoveData.active && SPLIT(move) != SPLIT_STATUS))
 		return FALSE;
 
 	bool8 affected = ProtectAffects(move, bankAtk, bankDef, TRUE);
@@ -170,7 +160,7 @@ bool8 JumpIfMoveAffectedByProtect(u16 move, u8 bankAtk, u8 bankDef, bool8 actual
 	{
 		gMoveResultFlags |= MOVE_RESULT_MISSED;
 		gNewBS->ResultFlags[bankDef] = MOVE_RESULT_MISSED;
-		
+
 		if (actuallyJump)
 			JumpIfMoveFailed(7, move);
 	}
@@ -261,11 +251,7 @@ bool8 ProtectAffects(u16 move, u8 bankAtk, u8 bankDef, bool8 set)
 		gBattleStringLoader = WideGuardProtectedString;
 		gNewBS->missStringId[bankDef] = gBattleCommunication[6] = 8;
 	}
-	else if (IsRaidBattle()
-	&& split == SPLIT_STATUS
-	&& gBankAttacker != bankDef
-	&& bankDef == BANK_RAID_BOSS
-	&& gNewBS->dynamaxData.raidShieldsUp)
+	else if (IsRaidBattle() && split == SPLIT_STATUS && gBankAttacker != bankDef && bankDef == BANK_RAID_BOSS && gNewBS->dynamaxData.raidShieldsUp)
 	{
 		effect = 1;
 		gBattleStringLoader = gText_RaidShieldProtected;
@@ -283,27 +269,28 @@ bool8 DoesProtectionMoveBlockMove(u8 bankAtk, u8 bankDef, u16 atkMove, u16 prote
 
 	if (!CheckTableForMove(atkMove, gMovesThatLiftProtectTable))
 	{
-		switch (protectMove) {
-			case MOVE_PROTECT:
-			case MOVE_SPIKYSHIELD:
-			case MOVE_BANEFULBUNKER:
-				return protectFlag != 0;
+		switch (protectMove)
+		{
+		case MOVE_PROTECT:
+		case MOVE_SPIKYSHIELD:
+		case MOVE_BANEFULBUNKER:
+			return protectFlag != 0;
 
-			case MOVE_KINGSSHIELD:
-			case MOVE_OBSTRUCT:
-				return protectFlag && split != SPLIT_STATUS;
+		case MOVE_KINGSSHIELD:
+		case MOVE_OBSTRUCT:
+			return protectFlag && split != SPLIT_STATUS;
 
-			case MOVE_MATBLOCK:
-				return gDisableStructs[bankDef].isFirstTurn && protectFlag && split != SPLIT_STATUS;
+		case MOVE_MATBLOCK:
+			return gDisableStructs[bankDef].isFirstTurn && protectFlag && split != SPLIT_STATUS;
 
-			case MOVE_CRAFTYSHIELD:
-				return target != MOVE_TARGET_USER && split == SPLIT_STATUS;
+		case MOVE_CRAFTYSHIELD:
+			return target != MOVE_TARGET_USER && split == SPLIT_STATUS;
 
-			case MOVE_QUICKGUARD:
-				return protectFlag && PriorityCalc(bankAtk, ACTION_USE_MOVE, atkMove) > 0;
+		case MOVE_QUICKGUARD:
+			return protectFlag && PriorityCalc(bankAtk, ACTION_USE_MOVE, atkMove) > 0;
 
-			case MOVE_WIDEGUARD:
-				return protectFlag && target & (MOVE_TARGET_BOTH | MOVE_TARGET_FOES_AND_ALLY);
+		case MOVE_WIDEGUARD:
+			return protectFlag && target & (MOVE_TARGET_BOTH | MOVE_TARGET_FOES_AND_ALLY);
 		}
 	}
 
@@ -314,15 +301,12 @@ bool8 MissesDueToSemiInvulnerability(u8 bankAtk, u8 bankDef, u16 move)
 {
 	if (!CanHitSemiInvulnerableTarget(bankAtk, bankDef, move))
 	{
-		if (((gStatuses3[bankDef] & (STATUS3_IN_AIR | STATUS3_SKY_DROP_ATTACKER | STATUS3_SKY_DROP_TARGET)) && !CheckTableForMove(move, gIgnoreInAirMoves))
-		||  ((gStatuses3[bankDef] & STATUS3_UNDERGROUND) && !CheckTableForMove(move, gIgnoreUndergoundMoves))
-		||  ((gStatuses3[bankDef] & STATUS3_UNDERWATER) && !CheckTableForMove(move, gIgnoreUnderwaterMoves))
-		||   (gStatuses3[bankDef] & STATUS3_DISAPPEARED))
+		if (((gStatuses3[bankDef] & (STATUS3_IN_AIR | STATUS3_SKY_DROP_ATTACKER | STATUS3_SKY_DROP_TARGET)) && !CheckTableForMove(move, gIgnoreInAirMoves)) || ((gStatuses3[bankDef] & STATUS3_UNDERGROUND) && !CheckTableForMove(move, gIgnoreUndergoundMoves)) || ((gStatuses3[bankDef] & STATUS3_UNDERWATER) && !CheckTableForMove(move, gIgnoreUnderwaterMoves)) || (gStatuses3[bankDef] & STATUS3_DISAPPEARED))
 		{
 			return TRUE;
 		}
 	}
-	
+
 	return FALSE;
 }
 
@@ -333,33 +317,27 @@ static bool8 AccuracyCalcHelper(u16 move, u8 bankDef)
 	if (MissesDueToSemiInvulnerability(gBankAttacker, bankDef, move))
 	{
 		gNewBS->ResultFlags[bankDef] = MOVESTATUS_MISSED;
-		//JumpIfMoveFailed(7, move);
+		// JumpIfMoveFailed(7, move);
 		gHitMarker &= ~(HITMARKER_IGNORE_IN_AIR | HITMARKER_IGNORE_UNDERGROUND | HITMARKER_IGNORE_UNDERWATER);
 		return TRUE;
 	}
 
-	//lock-on/mind reader checked,
-	//then no guard,
-	//always hiting toxic on poison types,
-	//then stomp on a minimized target,
-	//then always hitting telekinesis except 0HKO moves,
-	//then 0 acc moves
-	if (((gStatuses3[bankDef] & STATUS3_ALWAYS_HITS) && gDisableStructs[bankDef].bankWithSureHit == gBankAttacker)
-	||   (ABILITY(gBankAttacker) == ABILITY_NOGUARD) || (ABILITY(bankDef) == ABILITY_NOGUARD)
-	||   (move == MOVE_TOXIC && IsOfType(gBankAttacker, TYPE_POISON))
-	||   (CheckTableForMove(move, gAlwaysHitWhenMinimizedMoves) && gStatuses3[bankDef] & STATUS3_MINIMIZED)
-	||  ((gStatuses3[bankDef] & STATUS3_TELEKINESIS) && gBattleMoves[move].effect != EFFECT_0HKO)
-	||	 gBattleMoves[move].accuracy == 0)
+	// lock-on/mind reader checked,
+	// then no guard,
+	// always hiting toxic on poison types,
+	// then stomp on a minimized target,
+	// then always hitting telekinesis except 0HKO moves,
+	// then 0 acc moves
+	if (((gStatuses3[bankDef] & STATUS3_ALWAYS_HITS) && gDisableStructs[bankDef].bankWithSureHit == gBankAttacker) || (ABILITY(gBankAttacker) == ABILITY_NOGUARD) || (ABILITY(bankDef) == ABILITY_NOGUARD) || (move == MOVE_TOXIC && IsOfType(gBankAttacker, TYPE_POISON)) || (CheckTableForMove(move, gAlwaysHitWhenMinimizedMoves) && gStatuses3[bankDef] & STATUS3_MINIMIZED) || ((gStatuses3[bankDef] & STATUS3_TELEKINESIS) && gBattleMoves[move].effect != EFFECT_0HKO) || gBattleMoves[move].accuracy == 0)
 	{
-		//JumpIfMoveFailed(7, move);
+		// JumpIfMoveFailed(7, move);
 		doneStatus = TRUE;
 	}
 	else if (WEATHER_HAS_EFFECT)
 	{
-		if (((gBattleWeather & WEATHER_RAIN_ANY) && CheckTableForMove(move, gAlwaysHitInRainMoves) && ITEM_EFFECT(bankDef) != ITEM_EFFECT_UTILITY_UMBRELLA)
-		||  ((gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD))
+		if (((gBattleWeather & WEATHER_RAIN_ANY) && CheckTableForMove(move, gAlwaysHitInRainMoves) && ITEM_EFFECT(bankDef) != ITEM_EFFECT_UTILITY_UMBRELLA) || ((gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD))
 		{
-			//JumpIfMoveFailed(7, move);
+			// JumpIfMoveFailed(7, move);
 			doneStatus = TRUE;
 		}
 	}
@@ -378,12 +356,12 @@ static u32 AccuracyCalcPassDefAbilityItemEffect(u16 move, u8 bankAtk, u8 bankDef
 	u8 moveAcc;
 	s8 buff;
 	u32 calc;
-	u8 atkEffect  = ITEM_EFFECT(bankAtk);
-	//u8 defEffect  = ITEM_EFFECT(bankDef);
+	u8 atkEffect = ITEM_EFFECT(bankAtk);
+	// u8 defEffect  = ITEM_EFFECT(bankDef);
 	u8 atkQuality = ITEM_QUALITY(bankAtk);
 	u8 defQuality = ITEM_QUALITY(bankDef);
 	u8 atkAbility = ABILITY(bankAtk);
-	//u8 defAbility = ABILITY(bankDef);
+	// u8 defAbility = ABILITY(bankDef);
 	u8 moveSplit = CalcMoveSplit(gBankAttacker, move);
 
 	u8 acc;
@@ -392,11 +370,7 @@ static u32 AccuracyCalcPassDefAbilityItemEffect(u16 move, u8 bankAtk, u8 bankDef
 	else
 		acc = STAT_STAGE(bankAtk, STAT_STAGE_ACC);
 
-	if ((gBattleMons[bankDef].status2 & STATUS2_FORESIGHT)
-	||  (gBattleMons[bankDef].status2 & STATUS3_MIRACLE_EYED)
-	||   atkAbility == ABILITY_UNAWARE
-	||   atkAbility == ABILITY_KEENEYE
-	||   CheckTableForMove(move, gIgnoreStatChangesMoves))
+	if ((gBattleMons[bankDef].status2 & STATUS2_FORESIGHT) || (gBattleMons[bankDef].status2 & STATUS3_MIRACLE_EYED) || atkAbility == ABILITY_UNAWARE || atkAbility == ABILITY_KEENEYE || CheckTableForMove(move, gIgnoreStatChangesMoves))
 	{
 		buff = acc;
 	}
@@ -410,32 +384,31 @@ static u32 AccuracyCalcPassDefAbilityItemEffect(u16 move, u8 bankAtk, u8 bankDef
 
 	moveAcc = gBattleMoves[move].accuracy;
 
-	//Check Thunder + Hurricane in sunny weather
-	if (WEATHER_HAS_EFFECT
-	&& (gBattleWeather & WEATHER_SUN_ANY)
-	&& defEffect != ITEM_EFFECT_UTILITY_UMBRELLA
-	&& CheckTableForMove(move, gAlwaysHitInRainMoves))
+	// Check Thunder + Hurricane in sunny weather
+	if (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_SUN_ANY) && defEffect != ITEM_EFFECT_UTILITY_UMBRELLA && CheckTableForMove(move, gAlwaysHitInRainMoves))
 		moveAcc = 50;
 
-	//Check Wonder Skin for Status moves
+	// Check Wonder Skin for Status moves
 	if (defAbility == ABILITY_WONDERSKIN && moveSplit == SPLIT_STATUS && moveAcc > 50)
 		moveAcc = 50;
 
 	calc = gAccuracyStageRatios[buff].dividend * moveAcc;
 	calc = udivsi(calc, gAccuracyStageRatios[buff].divisor);
 
-	switch (atkAbility) {
-		case ABILITY_COMPOUNDEYES:
-			calc = udivsi((calc * 130), 100); // 1.3 Compound Eyes boost
-			break;
+	switch (atkAbility)
+	{
+	case ABILITY_COMPOUNDEYES:
+	case ABILITY_ILLUMINATE:
+		calc = udivsi((calc * 130), 100); // 1.3 Compound Eyes boost
+		break;
 
-		case ABILITY_HUSTLE:
-			if (moveSplit == SPLIT_PHYSICAL)
-				calc = udivsi((calc * 80), 100); // 0.8 Hustle loss;
-			break;
+	case ABILITY_HUSTLE:
+		if (moveSplit == SPLIT_PHYSICAL)
+			calc = udivsi((calc * 80), 100); // 0.8 Hustle loss;
+		break;
 
-		case ABILITY_VICTORYSTAR:
-			calc = udivsi((calc * 110), 100); // 1.1 Victory Star boost
+	case ABILITY_VICTORYSTAR:
+		calc = udivsi((calc * 110), 100); // 1.1 Victory Star boost
 	}
 
 	if (IS_DOUBLE_BATTLE && ABILITY(PARTNER(bankAtk)) == ABILITY_VICTORYSTAR)
@@ -443,22 +416,23 @@ static u32 AccuracyCalcPassDefAbilityItemEffect(u16 move, u8 bankAtk, u8 bankDef
 
 	if (WEATHER_HAS_EFFECT)
 	{
-		switch (defAbility) {
-			case ABILITY_SANDVEIL:
-				if (gBattleWeather & WEATHER_SANDSTORM_ANY)
-					calc = udivsi((calc * 80), 100); // 0.8 Sand Veil loss
-				break;
+		switch (defAbility)
+		{
+		case ABILITY_SANDVEIL:
+			if (gBattleWeather & WEATHER_SANDSTORM_ANY)
+				calc = udivsi((calc * 80), 100); // 0.8 Sand Veil loss
+			break;
 
-			case ABILITY_SNOWCLOAK:
-				if (gBattleWeather & WEATHER_HAIL_ANY)
-					calc = udivsi((calc * 80), 100); // 0.8 Snow Cloak loss
+		case ABILITY_SNOWCLOAK:
+			if (gBattleWeather & WEATHER_HAIL_ANY)
+				calc = udivsi((calc * 80), 100); // 0.8 Snow Cloak loss
 		}
 
 		if (gBattleWeather & WEATHER_FOG_ANY)
 		{
-			#ifdef UNBOUND
+#ifdef UNBOUND
 			if (atkAbility != ABILITY_KEENEYE && atkAbility != ABILITY_INFILTRATOR)
-			#endif
+#endif
 				calc = udivsi((calc * 60), 100); // 0.6 Fog loss
 		}
 	}
@@ -466,14 +440,15 @@ static u32 AccuracyCalcPassDefAbilityItemEffect(u16 move, u8 bankAtk, u8 bankDef
 	if (defAbility == ABILITY_TANGLEDFEET && IsConfused(bankDef))
 		calc /= 2; // 0.5 Tangled Feet loss
 
-	switch (atkEffect) {
-		case ITEM_EFFECT_WIDE_LENS:
-			calc = udivsi((calc * (100 + atkQuality)), 100); // 1.1 Wide Lens boost
-			break;
+	switch (atkEffect)
+	{
+	case ITEM_EFFECT_WIDE_LENS:
+		calc = udivsi((calc * (100 + atkQuality)), 100); // 1.1 Wide Lens boost
+		break;
 
-		case ITEM_EFFECT_ZOOM_LENS:
-			if (BankMovedBefore(bankDef, bankAtk))
-				calc = udivsi((calc * (100 + atkQuality)), 100); // 1.2 Zoom Lens boost
+	case ITEM_EFFECT_ZOOM_LENS:
+		if (BankMovedBefore(bankDef, bankAtk))
+			calc = udivsi((calc * (100 + atkQuality)), 100); // 1.2 Zoom Lens boost
 	}
 
 	if (IsGravityActive())
@@ -490,7 +465,7 @@ static u32 AccuracyCalcPassDefAbilityItemEffect(u16 move, u8 bankAtk, u8 bankDef
 			calc = (calc * 12) / 10; // 1.2 Micle Berry Boost
 	}
 
-	if (gBattleMoves[move].accuracy == 0) //Always hit
+	if (gBattleMoves[move].accuracy == 0) // Always hit
 		calc = 0xFFFF;
 
 	return calc;
@@ -498,7 +473,7 @@ static u32 AccuracyCalcPassDefAbilityItemEffect(u16 move, u8 bankAtk, u8 bankDef
 
 u32 VisualAccuracyCalc(u16 move, u8 bankAtk, u8 bankDef)
 {
-	u8 defEffect  = GetRecordedItemEffect(bankDef);
+	u8 defEffect = GetRecordedItemEffect(bankDef);
 	u8 defAbility = GetRecordedAbility(bankDef);
 
 	return AccuracyCalcPassDefAbilityItemEffect(move, bankAtk, bankDef, defAbility, defEffect);
@@ -509,45 +484,45 @@ u32 VisualAccuracyCalc_NoTarget(u16 move, u8 bankAtk)
 	u8 moveAcc;
 	u8 acc;
 	u32 calc;
-	u8 atkEffect  = ITEM_EFFECT(bankAtk);
+	u8 atkEffect = ITEM_EFFECT(bankAtk);
 	u8 atkQuality = ITEM_QUALITY(bankAtk);
 	u8 atkAbility = ABILITY(bankAtk);
 	u8 moveSplit = SPLIT(move);
 
-	acc = gBattleMons[bankAtk].statStages[STAT_STAGE_ACC-1];
+	acc = gBattleMons[bankAtk].statStages[STAT_STAGE_ACC - 1];
 	moveAcc = gBattleMoves[move].accuracy;
 
-	//Check Thunder + Hurricane in sunny weather
-	if (WEATHER_HAS_EFFECT
-	&& (gBattleWeather & WEATHER_SUN_ANY)
-	&& CheckTableForMove(move, gAlwaysHitInRainMoves))
+	// Check Thunder + Hurricane in sunny weather
+	if (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_SUN_ANY) && CheckTableForMove(move, gAlwaysHitInRainMoves))
 		moveAcc = 50;
 
 	calc = gAccuracyStageRatios[acc].dividend * moveAcc;
 	calc = udivsi(calc, gAccuracyStageRatios[acc].divisor);
 
-	switch (atkAbility) {
-		case ABILITY_COMPOUNDEYES:
-			calc = udivsi((calc * 130), 100); // 1.3 Compound Eyes boost
-			break;
+	switch (atkAbility)
+	{
+	case ABILITY_COMPOUNDEYES:
+	case ABILITY_ILLUMINATE:
+		calc = udivsi((calc * 130), 100); // 1.3 Compound Eyes boost
+		break;
 
-		case ABILITY_HUSTLE:
-			if (moveSplit == SPLIT_PHYSICAL)
-				calc = udivsi((calc * 80), 100); // 0.8 Hustle loss;
-			break;
+	case ABILITY_HUSTLE:
+		if (moveSplit == SPLIT_PHYSICAL)
+			calc = udivsi((calc * 80), 100); // 0.8 Hustle loss;
+		break;
 
-		case ABILITY_VICTORYSTAR:
-			calc = udivsi((calc * 110), 100); // 1.1 Victory Star boost
+	case ABILITY_VICTORYSTAR:
+		calc = udivsi((calc * 110), 100); // 1.1 Victory Star boost
 	}
 
 	if (IS_DOUBLE_BATTLE && ABILITY(PARTNER(bankAtk)) == ABILITY_VICTORYSTAR)
 		calc = udivsi((calc * 110), 100); // 1.1 Victory Star partner boost
 
-	if (WEATHER_HAS_EFFECT &&  gBattleWeather & WEATHER_FOG_ANY)
+	if (WEATHER_HAS_EFFECT && gBattleWeather & WEATHER_FOG_ANY)
 	{
-		#ifdef UNBOUND
+#ifdef UNBOUND
 		if (atkAbility != ABILITY_KEENEYE && atkAbility != ABILITY_INFILTRATOR)
-		#endif
+#endif
 			calc = udivsi((calc * 60), 100); // 0.6 Fog loss
 	}
 
@@ -567,12 +542,11 @@ u32 VisualAccuracyCalc_NoTarget(u16 move, u8 bankAtk)
 
 	if (WEATHER_HAS_EFFECT)
 	{
-		if (((gBattleWeather & WEATHER_RAIN_ANY) && CheckTableForMove(move, gAlwaysHitInRainMoves))
-		||  ((gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD))
-			calc = 0; //No Miss
+		if (((gBattleWeather & WEATHER_RAIN_ANY) && CheckTableForMove(move, gAlwaysHitInRainMoves)) || ((gBattleWeather & WEATHER_HAIL_ANY) && move == MOVE_BLIZZARD))
+			calc = 0; // No Miss
 	}
 
-	if (gBattleMoves[move].accuracy == 0) //Always hit
+	if (gBattleMoves[move].accuracy == 0) // Always hit
 		calc = 0xFFFF;
 
 	return calc;
@@ -580,7 +554,7 @@ u32 VisualAccuracyCalc_NoTarget(u16 move, u8 bankAtk)
 
 void JumpIfMoveFailed(u8 adder, u16 move)
 {
-	const u8* BS_ptr = gBattlescriptCurrInstr + adder;
+	const u8 *BS_ptr = gBattlescriptCurrInstr + adder;
 	if (gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
 	{
 		gLastLandedMoves[gBankTarget] = 0;
