@@ -167,7 +167,7 @@ const s8 gAbilityRatings[ABILITIES_COUNT] =
 		[ABILITY_OVERGROW] = 5,
 		[ABILITY_OWNTEMPO] = 3,
 		[ABILITY_PARENTALBOND] = 10,
-		[ABILITY_PICKUP] = 1,
+		// [ABILITY_PICKUP] = 1,
 		[ABILITY_PICKPOCKET] = 3,
 		[ABILITY_PIXILATE] = 8,
 		[ABILITY_PLUS] = 0,
@@ -1379,26 +1379,26 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
 				}
 				break;
 
-			case ABILITY_PICKUP:;
-				u8 itemBank = GetTopOfPickupStackNotIncludingBank(bank);
+				// case ABILITY_PICKUP:;
+				// 	u8 itemBank = GetTopOfPickupStackNotIncludingBank(bank);
 
-				if (itemBank != 0xFF)
-				{
-					RemoveBankFromPickupStack(itemBank);
-					if (CONSUMED_ITEMS(itemBank)) // This shouldn't be empty but just in case
-					{
-						gBattleMons[bank].item = CONSUMED_ITEMS(itemBank);
-						EmitSetMonData(0, REQUEST_HELDITEM_BATTLE, 0, 2, &gBattleMons[bank].item);
-						MarkBufferBankForExecution(bank);
-						gLastUsedItem = CONSUMED_ITEMS(itemBank);
-						CONSUMED_ITEMS(itemBank) = 0;
-						RecordItemEffectBattle(bank, ITEM_EFFECT(bank));
-						BattleScriptPushCursorAndCallback(BattleScript_Pickup);
-						++effect;
-						break;
-					}
-				}
-				break;
+				// 	if (itemBank != 0xFF)
+				// 	{
+				// 		RemoveBankFromPickupStack(itemBank);
+				// 		if (CONSUMED_ITEMS(itemBank)) // This shouldn't be empty but just in case
+				// 		{
+				// 			gBattleMons[bank].item = CONSUMED_ITEMS(itemBank);
+				// 			EmitSetMonData(0, REQUEST_HELDITEM_BATTLE, 0, 2, &gBattleMons[bank].item);
+				// 			MarkBufferBankForExecution(bank);
+				// 			gLastUsedItem = CONSUMED_ITEMS(itemBank);
+				// 			CONSUMED_ITEMS(itemBank) = 0;
+				// 			RecordItemEffectBattle(bank, ITEM_EFFECT(bank));
+				// 			BattleScriptPushCursorAndCallback(BattleScript_Pickup);
+				// 			++effect;
+				// 			break;
+				// 		}
+				// 	}
+				// 	break;
 
 			case ABILITY_SLOWSTART:
 				if (gNewBS->SlowStartTimers[bank] > 0 && --gNewBS->SlowStartTimers[bank] == 0)

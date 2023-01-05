@@ -1301,10 +1301,10 @@ u8 TurnBasedEffects(void)
 					switch (ABILITY(gActiveBattler))
 					{
 					case ABILITY_HARVEST:
-					case ABILITY_PICKUP:
+						// case ABILITY_PICKUP:
 						// case ABILITY_BALLFETCH:
-						// 	if (AbilityBattleEffects(ABILITYEFFECT_ENDTURN, gActiveBattler, 0, 0, 0))
-						// 		effect++;
+						if (AbilityBattleEffects(ABILITYEFFECT_ENDTURN, gActiveBattler, 0, 0, 0))
+							effect++;
 					}
 				}
 				break;
