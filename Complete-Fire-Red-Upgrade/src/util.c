@@ -102,37 +102,35 @@ bool8 CheckTableForItem(u16 item, const u16 table[])
 	return FALSE;
 }
 
-u8 ViableMonCount(struct Pokemon* party)
+u8 ViableMonCount(struct Pokemon *party)
 {
 	u8 count = 0;
 
 	for (u32 i = 0; i < PARTY_SIZE; ++i)
 	{
-		if (GetMonData(&party[i], MON_DATA_SPECIES, NULL) != SPECIES_NONE
-		&& !GetMonData(&party[i], MON_DATA_IS_EGG, NULL)
-		&&  GetMonData(&party[i], MON_DATA_HP, NULL) > 0)
+		if (GetMonData(&party[i], MON_DATA_SPECIES, NULL) != SPECIES_NONE && !GetMonData(&party[i], MON_DATA_IS_EGG, NULL) && GetMonData(&party[i], MON_DATA_HP, NULL) > 0)
 			++count;
 	}
 
 	return count;
 }
 
-void HealMon(struct Pokemon* mon)
+void HealMon(struct Pokemon *mon)
 {
 	u32 none = 0;
 	u16 maxHP = GetMonData(mon, MON_DATA_MAX_HP, NULL);
 
-	//Restore HP.
+	// Restore HP.
 	SetMonData(mon, MON_DATA_HP, &maxHP);
 
-	//Restore PP.
+	// Restore PP.
 	MonRestorePP(mon);
 
-	//Restore Status.
+	// Restore Status.
 	SetMonData(mon, MON_DATA_STATUS, &none);
 }
 
-void SetMonPokedexFlags(struct Pokemon* mon)
+void SetMonPokedexFlags(struct Pokemon *mon)
 {
 	if (!GetMonData(mon, MON_DATA_IS_EGG, NULL))
 	{
@@ -148,19 +146,20 @@ u16 GetNationalPokedexCount(u8 caseID)
 	u32 i;
 	u16 count = 0;
 	u8 byte;
-	u8* flags;
+	u8 *flags;
 
-	switch (caseID) {
-		case FLAG_GET_SEEN:
-			flags = (u8*) SEEN_DEX_FLAGS;
-			break;
+	switch (caseID)
+	{
+	case FLAG_GET_SEEN:
+		flags = (u8 *)SEEN_DEX_FLAGS;
+		break;
 
-		default: //case FLAG_GET_CAUGHT:
-			flags = (u8*) CAUGHT_DEX_FLAGS;
-			break;
+	default: // case FLAG_GET_CAUGHT:
+		flags = (u8 *)CAUGHT_DEX_FLAGS;
+		break;
 	}
 
-	for (i = 0; i <= (NATIONAL_DEX_COUNT - 1) / 8; ++i) //8 Pokemon per byte
+	for (i = 0; i <= (NATIONAL_DEX_COUNT - 1) / 8; ++i) // 8 Pokemon per byte
 	{
 		byte = flags[i];
 
@@ -176,10 +175,10 @@ u16 GetNationalPokedexCount(u8 caseID)
 	return count;
 }
 
-bool8 CanEvolve(struct Pokemon* mon)
+bool8 CanEvolve(struct Pokemon *mon)
 {
 	u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-	const struct Evolution* evolutions = gEvolutionTable[species];
+	const struct Evolution *evolutions = gEvolutionTable[species];
 
 	for (u32 i = 0; i < EVOS_PER_MON; ++i)
 	{
@@ -190,10 +189,10 @@ bool8 CanEvolve(struct Pokemon* mon)
 	return FALSE;
 }
 
-bool8 CouldHaveEvolvedViaLevelUp(struct Pokemon* mon)
+bool8 CouldHaveEvolvedViaLevelUp(struct Pokemon *mon)
 {
 	u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-	const struct Evolution* evolutions = gEvolutionTable[species];
+	const struct Evolution *evolutions = gEvolutionTable[species];
 
 	for (u32 i = 0; i < EVOS_PER_MON; ++i)
 	{
@@ -204,22 +203,19 @@ bool8 CouldHaveEvolvedViaLevelUp(struct Pokemon* mon)
 	return FALSE;
 }
 
-void EvolveSpeciesByLevel(u16* species, u8 level)
+void EvolveSpeciesByLevel(u16 *species, u8 level)
 {
-	const struct Evolution* evolutions;
+	const struct Evolution *evolutions;
 
-	START:
+START:
 	evolutions = gEvolutionTable[*species];
 
 	for (u32 i = 0; i < EVOS_PER_MON; ++i)
 	{
-		if ((IsLevelUpEvolutionMethod(evolutions[i].method) && level >= evolutions[i].param)
-		||  (IsOtherEvolutionMethod(evolutions[i].method) && level >= 40)
-		||  (IsItemEvolutionMethod(evolutions[i].method) && level >= 50)
-		||  (IsFriendshipEvolutionMethod(evolutions[i].method) && level >= 60))
+		if ((IsLevelUpEvolutionMethod(evolutions[i].method) && level >= evolutions[i].param) || (IsOtherEvolutionMethod(evolutions[i].method) && level >= 40) || (IsItemEvolutionMethod(evolutions[i].method) && level >= 50) || (IsFriendshipEvolutionMethod(evolutions[i].method) && level >= 60))
 		{
 			*species = evolutions[i].targetSpecies;
-			goto START; //Evolve until it can't evolve any more
+			goto START; // Evolve until it can't evolve any more
 		}
 	}
 }
@@ -227,7 +223,7 @@ void EvolveSpeciesByLevel(u16* species, u8 level)
 u32 GetBaseStatsTotal(const u16 species)
 {
 	u32 sum = 0;
-	u8* ptr = &gBaseStats[species].baseHP;
+	u8 *ptr = &gBaseStats[species].baseHP;
 
 	for (int i = 0; i < NUM_STATS; ++i)
 		sum += ptr[i];
@@ -235,7 +231,7 @@ u32 GetBaseStatsTotal(const u16 species)
 	return sum;
 }
 
-u8 FindMovePositionInMonMoveset(u16 move, struct Pokemon* mon)
+u8 FindMovePositionInMonMoveset(u16 move, struct Pokemon *mon)
 {
 	u8 i;
 
@@ -248,26 +244,25 @@ u8 FindMovePositionInMonMoveset(u16 move, struct Pokemon* mon)
 	return i;
 }
 
-bool8 MoveInMonMoveset(u16 move, struct Pokemon* mon)
+bool8 MoveInMonMoveset(u16 move, struct Pokemon *mon)
 {
 	return FindMovePositionInMonMoveset(move, mon) < MAX_MON_MOVES;
 }
 
-bool8 AllHittingMoveWithTypeInMonMoveset(struct Pokemon* mon, u8 moveType)
+bool8 AllHittingMoveWithTypeInMonMoveset(struct Pokemon *mon, u8 moveType)
 {
 	for (u32 i = 0; i < MAX_MON_MOVES; ++i)
 	{
 		u16 move = GetMonData(mon, MON_DATA_MOVE1 + i, NULL);
 
-		if (gBattleMoves[move].target & MOVE_TARGET_ALL
-		&& GetMonMoveTypeSpecial(mon, move) == moveType)
+		if (gBattleMoves[move].target & MOVE_TARGET_ALL && GetMonMoveTypeSpecial(mon, move) == moveType)
 			return TRUE;
 	}
 
 	return FALSE;
 }
 
-u8 GetMonType(struct Pokemon* mon, u8 typeId)
+u8 GetMonType(struct Pokemon *mon, u8 typeId)
 {
 	u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
 
@@ -277,7 +272,7 @@ u8 GetMonType(struct Pokemon* mon, u8 typeId)
 		return (ShouldReplaceTypesWithCamomons()) ? GetCamomonsTypeByMon(mon, 1) : gBaseStats[species].type2;
 }
 
-bool8 IsMonOfType(struct Pokemon* mon, u8 type)
+bool8 IsMonOfType(struct Pokemon *mon, u8 type)
 {
 	u8 type1 = GetMonType(mon, 0);
 	u8 type2 = GetMonType(mon, 1);
@@ -287,13 +282,13 @@ bool8 IsMonOfType(struct Pokemon* mon, u8 type)
 
 #define TILE_SIZE 32
 #define SPRITE_RAM 0x6010000
-#define sSpriteTileAllocBitmap ((u8*) 0x2021B48)
+#define sSpriteTileAllocBitmap ((u8 *)0x2021B48)
 #define FREE_SPRITE_TILE(n) (sSpriteTileAllocBitmap[(n) / 8] &= ~(1 << ((n) % 8)))
 
-void DestroyMonIconSprite(struct Sprite* sprite)
+void DestroyMonIconSprite(struct Sprite *sprite)
 {
 	u16 tile = sprite->oam.tileNum;
-	u8* tiles = (u8*)((tile * TILE_SIZE) + SPRITE_RAM);
+	u8 *tiles = (u8 *)((tile * TILE_SIZE) + SPRITE_RAM);
 	Memset(tiles, 0, 0x200);
 
 	for (int i = tile; i < tile + 16; ++i)
@@ -302,69 +297,47 @@ void DestroyMonIconSprite(struct Sprite* sprite)
 	ResetSprite(sprite);
 }
 
-bool8 CanPartyMonBeGeneralStatused(struct Pokemon* mon)
+bool8 CanPartyMonBeGeneralStatused(struct Pokemon *mon)
 {
 	u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
 	u8 type1 = GetMonType(mon, 0);
 	u8 type2 = GetMonType(mon, 1);
 
-	#ifdef SPECIES_MINIOR_SHIELD
+#ifdef SPECIES_MINIOR_SHIELD
 	if (species == SPECIES_MINIOR_SHIELD)
 		return FALSE;
-	#endif
+#endif
 
-	switch (GetMonAbility(mon)) {
-		case ABILITY_COMATOSE:
+	switch (GetMonAbility(mon))
+	{
+	case ABILITY_COMATOSE:
+		return FALSE;
+
+	case ABILITY_FLOWERVEIL:
+		if (type1 == TYPE_GRASS || type2 == TYPE_GRASS)
 			return FALSE;
-
-		case ABILITY_FLOWERVEIL:
-			if (type1 == TYPE_GRASS
-			||  type2 == TYPE_GRASS)
-				return FALSE;
 	}
 
 	return TRUE;
 }
 
-bool8 CanPartyMonBePutToSleep(struct Pokemon* mon)
+bool8 CanPartyMonBePutToSleep(struct Pokemon *mon)
 {
 	if (!CanPartyMonBeGeneralStatused(mon))
 		return FALSE;
 
-	switch (GetMonAbility(mon)) {
-		case ABILITY_INSOMNIA:
-		case ABILITY_VITALSPIRIT:
-		case ABILITY_SWEETVEIL:
-			return FALSE;
+	switch (GetMonAbility(mon))
+	{
+	case ABILITY_INSOMNIA:
+	case ABILITY_VITALSPIRIT:
+	case ABILITY_SWEETVEIL:
+		return FALSE;
 	}
 
 	return TRUE;
 }
 
-bool8 CanPartyMonBePoisoned(struct Pokemon* mon)
-{
-	u8 type1 = GetMonType(mon, 0);
-	u8 type2 = GetMonType(mon, 1);
-
-	if (!CanPartyMonBeGeneralStatused(mon))
-		return FALSE;
-
-	switch (GetMonAbility(mon)) {
-		case ABILITY_IMMUNITY:
-		case ABILITY_PASTELVEIL:
-			return FALSE;
-	}
-
-	if (type1 == TYPE_POISON
-	||  type2 == TYPE_POISON
-	||  type1 == TYPE_STEEL
-	||  type2 == TYPE_STEEL)
-		return FALSE;
-
-	return TRUE;
-}
-
-bool8 CanPartyMonBeParalyzed(struct Pokemon* mon)
+bool8 CanPartyMonBePoisoned(struct Pokemon *mon)
 {
 	u8 type1 = GetMonType(mon, 0);
 	u8 type2 = GetMonType(mon, 1);
@@ -372,19 +345,20 @@ bool8 CanPartyMonBeParalyzed(struct Pokemon* mon)
 	if (!CanPartyMonBeGeneralStatused(mon))
 		return FALSE;
 
-	switch (GetMonAbility(mon)) {
-		case ABILITY_LIMBER:
-			return FALSE;
+	switch (GetMonAbility(mon))
+	{
+	case ABILITY_IMMUNITY:
+		// case ABILITY_PASTELVEIL:
+		return FALSE;
 	}
 
-	if (type1 == TYPE_ELECTRIC
-	||  type2 == TYPE_ELECTRIC)
+	if (type1 == TYPE_POISON || type2 == TYPE_POISON || type1 == TYPE_STEEL || type2 == TYPE_STEEL)
 		return FALSE;
 
 	return TRUE;
 }
 
-bool8 CanPartyMonBeBurned(struct Pokemon* mon)
+bool8 CanPartyMonBeParalyzed(struct Pokemon *mon)
 {
 	u8 type1 = GetMonType(mon, 0);
 	u8 type2 = GetMonType(mon, 1);
@@ -392,20 +366,19 @@ bool8 CanPartyMonBeBurned(struct Pokemon* mon)
 	if (!CanPartyMonBeGeneralStatused(mon))
 		return FALSE;
 
-	switch (GetMonAbility(mon)) {
-		case ABILITY_WATERVEIL:
-		case ABILITY_WATERBUBBLE:
-			return FALSE;
+	switch (GetMonAbility(mon))
+	{
+	case ABILITY_LIMBER:
+		return FALSE;
 	}
 
-	if (type1 == TYPE_FIRE
-	||  type2 == TYPE_FIRE)
+	if (type1 == TYPE_ELECTRIC || type2 == TYPE_ELECTRIC)
 		return FALSE;
 
 	return TRUE;
 }
 
-bool8 CanPartyMonBeFrozen(struct Pokemon* mon)
+bool8 CanPartyMonBeBurned(struct Pokemon *mon)
 {
 	u8 type1 = GetMonType(mon, 0);
 	u8 type2 = GetMonType(mon, 1);
@@ -413,13 +386,34 @@ bool8 CanPartyMonBeFrozen(struct Pokemon* mon)
 	if (!CanPartyMonBeGeneralStatused(mon))
 		return FALSE;
 
-	switch (GetMonAbility(mon)) {
-		case ABILITY_MAGMAARMOR:
-			return FALSE;
+	switch (GetMonAbility(mon))
+	{
+	case ABILITY_WATERVEIL:
+	case ABILITY_WATERBUBBLE:
+		return FALSE;
 	}
 
-	if (type1 == TYPE_ICE
-	||  type2 == TYPE_ICE)
+	if (type1 == TYPE_FIRE || type2 == TYPE_FIRE)
+		return FALSE;
+
+	return TRUE;
+}
+
+bool8 CanPartyMonBeFrozen(struct Pokemon *mon)
+{
+	u8 type1 = GetMonType(mon, 0);
+	u8 type2 = GetMonType(mon, 1);
+
+	if (!CanPartyMonBeGeneralStatused(mon))
+		return FALSE;
+
+	switch (GetMonAbility(mon))
+	{
+	case ABILITY_MAGMAARMOR:
+		return FALSE;
+	}
+
+	if (type1 == TYPE_ICE || type2 == TYPE_ICE)
 		return FALSE;
 
 	return TRUE;
