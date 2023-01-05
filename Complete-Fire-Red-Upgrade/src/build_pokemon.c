@@ -2205,8 +2205,8 @@ static bool8 PokemonTierBan(const u16 species, const u16 item, const struct Batt
 		}
 
 		// Check Banned Abilities
-		if (ability == ABILITY_MOODY)
-			return 1;
+		// if (ability == ABILITY_MOODY)
+		// 	return 1;
 
 		// Check Banned Moves
 		for (i = 0; i < MAX_MON_MOVES; ++i)
