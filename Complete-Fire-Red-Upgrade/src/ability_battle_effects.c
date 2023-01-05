@@ -288,7 +288,7 @@ const s8 gAbilityRatings[ABILITIES_COUNT] =
 		[ABILITY_RIPEN] = 4,
 		[ABILITY_ICEFACE] = 4,
 		[ABILITY_POWERSPOT] = 2, // UPDATE
-		[ABILITY_MIMICRY] = 2,
+		// [ABILITY_MIMICRY] = 2,
 		[ABILITY_SCREENCLEANER] = 3,
 		[ABILITY_NEUTRALIZINGGAS] = 5,
 		[ABILITY_HUNGERSWITCH] = 2,
@@ -1158,16 +1158,16 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
 			effect++;
 			break;
 
-		case ABILITY_MIMICRY:;
-			const u8 *script = TryActivateMimicryForBank(bank);
-			if (script != NULL)
-			{
-				BattleScriptPushCursorAndCallback(BattleScript_End3); // Pop back down to end
-				BattleScriptPushCursor();
-				gBattlescriptCurrInstr = script;
-				effect++;
-			}
-			break;
+			// case ABILITY_MIMICRY:;
+			// 	const u8 *script = TryActivateMimicryForBank(bank);
+			// 	if (script != NULL)
+			// 	{
+			// 		BattleScriptPushCursorAndCallback(BattleScript_End3); // Pop back down to end
+			// 		BattleScriptPushCursor();
+			// 		gBattlescriptCurrInstr = script;
+			// 		effect++;
+			// 	}
+			// 	break;
 
 		case ABILITY_NEUTRALIZINGGAS:
 			for (i = 0; i < gBattlersCount; ++i)
