@@ -1442,14 +1442,15 @@ bool8 ShouldAIDelayMegaEvolution(u8 bankAtk, unusedArg u8 bankDef, u16 move)
 	{
 	case ABILITY_SPEEDBOOST:
 		// case ABILITY_MOODY:
-		// 	switch (move) {
-		// 		case MOVE_PROTECT:
-		// 		case MOVE_DETECT:
-		// 		case MOVE_SPIKYSHIELD:
-		// 		case MOVE_KINGSSHIELD:
-		// 			return TRUE; //Delay Mega Evolution if using Protect for Speed Boost benefits
-		// 	}
-		// 	break;
+		switch (move)
+		{
+		case MOVE_PROTECT:
+		case MOVE_DETECT:
+		case MOVE_SPIKYSHIELD:
+		case MOVE_KINGSSHIELD:
+			return TRUE; // Delay Mega Evolution if using Protect for Speed Boost benefits
+		}
+		break;
 		/* With these uncommented, the game winds up in an endless loop due to AI_SpecialTypeCalc calling GetAIAbility in the damage calc
 				case ABILITY_MOXIE:
 				case ABILITY_BEASTBOOST:
