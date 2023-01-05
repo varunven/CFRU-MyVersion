@@ -1102,11 +1102,17 @@ static void ModulateDmgByType(u8 multiplier, const u16 move, const u8 moveType, 
 
 		if (moveType == TYPE_PSYCHIC && defType == TYPE_DARK && (gStatuses3[bankDef] & STATUS3_MIRACLE_EYED))
 			return; // Miracle Eye causes normal damage hits
+		if (atkAbility == ABILITY_INNEREYE)
+			return;
 	}
 	else if (checkMonDef)
 	{
 		if (atkAbility == ABILITY_SCRAPPY && (defType == TYPE_GHOST && (moveType == TYPE_NORMAL || moveType == TYPE_FIGHTING)))
 			return; // Foresight breaks ghost immunity
+		if (atkAbility == ABILITY_CORROSION && (defType == TYPE_STEEL && (moveType == TYPE_POISON)))
+			return; // Corrosion bypasses steel immunity
+		if (atkAbility == ABILITY_INNEREYE)
+			return;
 	}
 
 	if (move == MOVE_FREEZEDRY && defType == TYPE_WATER) // Always Super-Effective, even in Inverse Battles
