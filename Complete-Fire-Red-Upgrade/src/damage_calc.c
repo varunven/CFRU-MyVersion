@@ -3156,6 +3156,12 @@ u8 GetMoveTypeSpecialPostAbility(u16 move, u8 atkAbility, bool8 zMoveActive)
 				power = (power * 15) / 10;
 			break;
 
+		case ABILITY_SHARPNESS:
+			// 1.5x Boost
+			if (CheckTableForMove(move, gBladeMoves))
+				power = (power * 15) / 10;
+			break;
+
 		case ABILITY_STRONGJAW:
 			// 1.5x Boost
 			if (CheckTableForMove(move, gBitingMoves))

@@ -703,6 +703,25 @@ gPulseAuraMoves:
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+gBladeMoves:
+.hword MOVE_AERIALACE
+.hword MOVE_AIRCUTTER
+.hword MOVE_AIRSLASH
+.hword MOVE_FURYCUTTER
+.hword MOVE_LEAFBLADE
+.hword MOVE_NIGHTSLASH
+.hword MOVE_PSYCHOCUT
+.hword MOVE_RAZORSHELL
+.hword MOVE_SACREDSWORD
+.hword MOVE_SLASH
+.hword MOVE_XSCISSOR
+.hword MOVE_CROSSPOISON
+.hword MOVE_CUT
+.hword MOVE_RAZORLEAF
+.hword MOVE_SOLARBLADE
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 gBitingMoves:
 .hword MOVE_BITE
 .hword MOVE_CRUNCH

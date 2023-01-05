@@ -7,7 +7,7 @@
  * \brief Contains declarations for many lists of moves.
  */
 
-//Move Ban Tables
+// Move Ban Tables
 extern const move_t gGravityBannedMoves[];
 extern const move_t gMeFirstBannedMoves[];
 extern const move_t gCopycatBannedMoves[];
@@ -22,18 +22,19 @@ extern const move_t gRaidBattleBannedMoves[];
 extern const move_t gRaidBattleBannedRaidMonMoves[];
 extern const move_t gDynamaxBannedMoves[];
 
-//Move Categories
+// Move Categories
 extern const move_t gSheerForceBoostedMoves[];
 extern const move_t gRecklessBoostedMoves[];
 extern const move_t gPunchingMoves[];
 extern const move_t gPulseAuraMoves[];
+extern const move_t gBladeMoves[];
 extern const move_t gBitingMoves[];
 extern const move_t gBallBombMoves[];
 extern const move_t gDanceMoves[];
 extern const move_t gPowderMoves[];
 extern const move_t gSoundMoves[];
 
-//Other Moves
+// Other Moves
 extern const move_t gSubstituteBypassMoves[];
 extern const move_t gTypeChangeExceptionMoves[];
 extern const move_t gIgnoreStatChangesMoves[];
