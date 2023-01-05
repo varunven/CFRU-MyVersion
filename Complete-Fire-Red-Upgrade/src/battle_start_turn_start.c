@@ -1685,8 +1685,8 @@ s32 BracketCalc(u8 bank)
 			return -2;
 		}
 
-		if (ability == ABILITY_STALL)
-			return -1;
+		// if (ability == ABILITY_STALL)
+		// 	return -1;
 	}
 
 	return 0;
