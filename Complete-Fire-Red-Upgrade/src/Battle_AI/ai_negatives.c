@@ -221,6 +221,18 @@ u8 AIScript_Negatives(const u8 bankAtk, const u8 bankDef, const u16 originalMove
 			}
 			break;
 
+		// Fairy
+		case ABILITY_GUARDIANANGEL:
+			if (moveType == TYPE_FAIRY)
+			{
+				if (!TARGETING_PARTNER) // Good idea to attack partner
+				{
+					DECREASE_VIABILITY(20);
+					return viability;
+				}
+			}
+			break;
+
 		// Dark
 		case ABILITY_JUSTIFIED:
 			if (moveType == TYPE_DARK && moveSplit != SPLIT_STATUS)

@@ -107,6 +107,14 @@ u8 AIScript_Partner(const u8 bankAtk, const u8 bankAtkPartner, const u16 origina
 			}
 			break;
 
+		// Fairy
+		case ABILITY_GUARDIANANGEL:
+			if (moveType == TYPE_FAIRY && PhysicalMoveInMoveset(bankAtkPartner) && STAT_CAN_RISE(bankAtkPartner, STAT_STAGE_SPATK))
+			{
+				IncreaseHelpingHandViability(&viability, class);
+			}
+			break;
+
 		// Dark
 		case ABILITY_JUSTIFIED:
 			if (moveType == TYPE_DARK && moveSplit != SPLIT_STATUS && PhysicalMoveInMoveset(bankAtkPartner) && STAT_CAN_RISE(bankAtkPartner, STAT_STAGE_ATK) && !MoveKnocksOutXHits(move, bankAtk, bankAtkPartner, 1))

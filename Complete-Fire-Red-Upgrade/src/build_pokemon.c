@@ -68,6 +68,7 @@ enum
 	FIRE_IMMUNITY,
 	WATER_IMMUNITY,
 	GRASS_IMMUNITY,
+	FAIRY_IMMUNITY,
 	ELECTRIC_IMMUNITY,
 	SOUND_IMMUNITY,
 	JUSTIFIED_BOOSTED,
@@ -108,6 +109,7 @@ static struct Immunity sImmunities[] =
 		{FIRE_IMMUNITY, TYPE_FIRE},
 		{WATER_IMMUNITY, TYPE_WATER},
 		{GRASS_IMMUNITY, TYPE_GRASS},
+		{FAIRY_IMMUNITY, TYPE_FAIRY},
 		{ELECTRIC_IMMUNITY, TYPE_ELECTRIC},
 };
 
@@ -1603,6 +1605,10 @@ static u8 BuildFrontierParty(struct Pokemon *const party, const u16 trainerId, c
 
 					case ABILITY_SAPSIPPER:
 						builder->partyIndex[GRASS_IMMUNITY] = i;
+						break;
+
+					case ABILITY_GUARDIANANGEL:
+						builder->partyIndex[FAIRY_IMMUNITY] = i;
 						break;
 
 					case ABILITY_LEVITATE:

@@ -302,6 +302,8 @@ const s8 gAbilityRatings[ABILITIES_COUNT] =
 		[ABILITY_LIQUIFY] = 8,
 		[ABILITY_SYNTHESIZE] = 8,
 		[ABILITY_IGNITE] = 8,
+		[ABILITY_SHARPNESS] = 7,
+		[ABILITY_GUARDIANANGEL] = 7,
 };
 
 const bool8 gMoldBreakerIgnoredAbilities[] =
@@ -375,7 +377,7 @@ const bool8 gMoldBreakerIgnoredAbilities[] =
 		[ABILITY_ICESCALES] = TRUE,
 		[ABILITY_ICEFACE] = TRUE,
 		// [ABILITY_PASTELVEIL] = TRUE,
-		[ABILITY_SHARPNESS] = 7,
+		[ABILITY_GUARDIANANGEL] = TRUE,
 };
 
 const u16 gWeatherContinuesStringIds[] =
@@ -1558,6 +1560,11 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
 		case ABILITY_SAPSIPPER:
 			if (moveType == TYPE_GRASS)
 				effect = 2, statId = STAT_ATK;
+			break;
+
+		case ABILITY_GUARDIANANGEL:
+			if (moveType == TYPE_FAIRY)
+				effect = 2, statId = STAT_SPATK;
 			break;
 
 		case ABILITY_FLASHFIRE:
