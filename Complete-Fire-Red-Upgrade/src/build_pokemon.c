@@ -1593,6 +1593,10 @@ static u8 BuildFrontierParty(struct Pokemon *const party, const u16 trainerId, c
 						builder->partyIndex[ELECTRIC_IMMUNITY] = i;
 						break;
 
+					case ABILITY_EARTHEATER:
+						builder->partyIndex[GROUND_IMMUNITY] = i;
+						break;
+
 					case ABILITY_WATERABSORB:
 					case ABILITY_DRYSKIN:
 					case ABILITY_STORMDRAIN:

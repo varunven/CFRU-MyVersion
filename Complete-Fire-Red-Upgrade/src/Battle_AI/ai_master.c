@@ -1018,6 +1018,10 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
 		absorbingTypeAbility2 = ABILITY_LIGHTNINGROD;
 		absorbingTypeAbility3 = ABILITY_MOTORDRIVE;
 		break;
+	case TYPE_GROUND:
+		absorbingTypeAbility1 = ABILITY_EARTHEATER;
+		absorbingTypeAbility2 = ABILITY_EARTHEATER;
+		absorbingTypeAbility3 = ABILITY_EARTHEATER;
 	case TYPE_WATER:
 		absorbingTypeAbility1 = ABILITY_WATERABSORB;
 		absorbingTypeAbility2 = ABILITY_DRYSKIN;

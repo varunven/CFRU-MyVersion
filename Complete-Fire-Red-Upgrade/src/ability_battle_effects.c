@@ -304,6 +304,7 @@ const s8 gAbilityRatings[ABILITIES_COUNT] =
 		[ABILITY_IGNITE] = 8,
 		[ABILITY_SHARPNESS] = 7,
 		[ABILITY_GUARDIANANGEL] = 7,
+		[ABILITY_EARTHEATER] = 7,
 };
 
 const bool8 gMoldBreakerIgnoredAbilities[] =
@@ -378,6 +379,7 @@ const bool8 gMoldBreakerIgnoredAbilities[] =
 		[ABILITY_ICEFACE] = TRUE,
 		// [ABILITY_PASTELVEIL] = TRUE,
 		[ABILITY_GUARDIANANGEL] = TRUE,
+		[ABILITY_EARTHEATER] = TRUE,
 };
 
 const u16 gWeatherContinuesStringIds[] =
@@ -1533,6 +1535,11 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
 		{
 		case ABILITY_VOLTABSORB:
 			if (moveType == TYPE_ELECTRIC)
+				effect = 1;
+			break;
+
+		case ABILITY_EARTHEATER:
+			if (moveType == TYPE_GROUND)
 				effect = 1;
 			break;
 

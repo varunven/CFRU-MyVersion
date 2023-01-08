@@ -172,6 +172,18 @@ u8 AIScript_Negatives(const u8 bankAtk, const u8 bankDef, const u16 originalMove
 			}
 			break;
 
+		// Ground
+		case ABILITY_EARTHEATER:
+			if (moveType == TYPE_GROUND)
+			{
+				if (!TARGETING_PARTNER) // Good idea to attack partner
+				{
+					DECREASE_VIABILITY(20);
+					return viability;
+				}
+			}
+			break;
+
 		// Water
 		case ABILITY_WATERABSORB:
 		case ABILITY_DRYSKIN:

@@ -73,6 +73,12 @@ u8 AIScript_Partner(const u8 bankAtk, const u8 bankAtkPartner, const u16 origina
 			}
 			break;
 
+		// Ground
+		case ABILITY_EARTHEATER:
+			if (moveType == TYPE_GROUND)
+				IncreaseHealPartnerViability(&viability, class, bankAtkPartner);
+			break;
+
 		// Water
 		case ABILITY_WATERABSORB:
 		case ABILITY_DRYSKIN:
