@@ -1982,7 +1982,10 @@ u8 GetMoveTypeSpecialPostAbility(u16 move, u8 atkAbility, bool8 zMoveActive)
 		case ABILITY_FLOWERGIFT:
 			// 1.5x Boost
 			if (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_SUN_ANY) && data->atkItemEffect != ITEM_EFFECT_UTILITY_UMBRELLA)
+			{
 				attack = (attack * 15) / 10;
+				spAttack = (spAttack * 15) / 10;
+			}
 			break;
 
 		case ABILITY_PLUS:
@@ -2076,7 +2079,10 @@ u8 GetMoveTypeSpecialPostAbility(u16 move, u8 atkAbility, bool8 zMoveActive)
 		{
 		case ABILITY_FLOWERGIFT:
 			if (WEATHER_HAS_EFFECT && (gBattleWeather & WEATHER_SUN_ANY) && ITEM_EFFECT(PARTNER(bankAtk)) != ITEM_EFFECT_UTILITY_UMBRELLA)
+			{
 				attack = (attack * 15) / 10;
+				spAttack = (spAttack * 15) / 10;
+			}
 			break;
 		}
 
