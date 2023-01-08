@@ -1154,7 +1154,7 @@ bool8 WillTakeSignificantDamageFromEntryHazards(u8 bank, u8 healthFraction)
 	{
 		struct Pokemon *mon = GetBankPartyData(bank);
 
-		if (gSideTimers[SIDE(bank)].srAmount > 0)
+		if (gSideTimers[SIDE(bank)].srAmount > 0 && GetMonAbility(GetBankPartyData(bank)) != ABILITY_MOUNTAINEER)
 			dmg += CalcStealthRockDamagePartyMon(mon);
 
 		if (gSideTimers[SIDE(bank)].steelsurge > 0)

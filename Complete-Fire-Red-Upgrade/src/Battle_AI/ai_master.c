@@ -1037,6 +1037,11 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
 		absorbingTypeAbility2 = ABILITY_GUARDIANANGEL;
 		absorbingTypeAbility3 = ABILITY_GUARDIANANGEL;
 		break;
+	case TYPE_ROCK:
+		absorbingTypeAbility1 = ABILITY_MOUNTAINEER;
+		absorbingTypeAbility2 = ABILITY_MOUNTAINEER;
+		absorbingTypeAbility3 = ABILITY_MOUNTAINEER;
+		break;
 	default:
 		return FALSE;
 	}

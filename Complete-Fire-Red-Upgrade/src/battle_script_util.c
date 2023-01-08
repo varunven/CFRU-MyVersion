@@ -331,6 +331,20 @@ void TryActivatePartnerGuardianAngel(void)
 	}
 }
 
+void TryActivatePartnerMountaineer(void)
+{
+	if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && !(gAbsentBattlerFlags & gBitTable[PARTNER(gBankAttacker)]) && ABILITY(PARTNER(gBankAttacker)) == ABILITY_MOUNTAINEER && gBattleStruct->dynamicMoveType == TYPE_ROCK && STAT_CAN_RISE(PARTNER(gBankAttacker), STAT_STAGE_DEF))
+	{
+		gBattleScripting.bank = gBankTarget = PARTNER(gBankAttacker);
+		gBattleScripting.statChanger = INCREASE_1 | STAT_STAGE_DEF;
+		gBattleScripting.animArg1 = 0xE + STAT_STAGE_DEF;
+		gBattleScripting.animArg2 = 0;
+		gLastUsedAbility = ABILITY(gBankTarget);
+		BattleScriptPush(gBattlescriptCurrInstr + 5);
+		gBattlescriptCurrInstr = BattleScript_SapSipperAromatherapy - 5;
+	}
+}
+
 void RoundBSFunction(void)
 {
 	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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 int i;

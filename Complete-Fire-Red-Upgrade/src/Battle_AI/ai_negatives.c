@@ -245,6 +245,18 @@ u8 AIScript_Negatives(const u8 bankAtk, const u8 bankDef, const u16 originalMove
 			}
 			break;
 
+		// Rock
+		case ABILITY_MOUNTAINEER:
+			if (moveType == TYPE_ROCK)
+			{
+				if (!TARGETING_PARTNER) // Good idea to attack partner
+				{
+					DECREASE_VIABILITY(20);
+					return viability;
+				}
+			}
+			break;
+
 		// Dark
 		case ABILITY_JUSTIFIED:
 			if (moveType == TYPE_DARK && moveSplit != SPLIT_STATUS)

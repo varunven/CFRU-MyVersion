@@ -115,7 +115,15 @@ u8 AIScript_Partner(const u8 bankAtk, const u8 bankAtkPartner, const u16 origina
 
 		// Fairy
 		case ABILITY_GUARDIANANGEL:
-			if (moveType == TYPE_FAIRY && PhysicalMoveInMoveset(bankAtkPartner) && STAT_CAN_RISE(bankAtkPartner, STAT_STAGE_SPATK))
+			if (moveType == TYPE_FAIRY && SpecialMoveInMonMoveset(bankAtkPartner) && STAT_CAN_RISE(bankAtkPartner, STAT_STAGE_SPATK))
+			{
+				IncreaseHelpingHandViability(&viability, class);
+			}
+			break;
+
+		// Rock
+		case ABILITY_MOUNTAINEER:
+			if (moveType == TYPE_ROCK && STAT_CAN_RISE(bankAtkPartner, STAT_STAGE_DEF))
 			{
 				IncreaseHelpingHandViability(&viability, class);
 			}

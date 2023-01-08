@@ -2185,7 +2185,7 @@ const struct BaseStats gBaseStats[] =
 				.ability1 = ABILITY_GUTS,
 				.ability2 = ABILITY_NOGUARD,
 				.safariZoneFleeRate = 0,
-				.hiddenAbility = ABILITY_STEADFAST,
+				.hiddenAbility = ABILITY_MOUNTAINEER,
 				.noFlip = TRUE,
 			},
 
@@ -2218,7 +2218,7 @@ const struct BaseStats gBaseStats[] =
 				.ability1 = ABILITY_GUTS,
 				.ability2 = ABILITY_NOGUARD,
 				.safariZoneFleeRate = 0,
-				.hiddenAbility = ABILITY_STEADFAST,
+				.hiddenAbility = ABILITY_MOUNTAINEER,
 				.noFlip = TRUE,
 			},
 
@@ -2251,7 +2251,7 @@ const struct BaseStats gBaseStats[] =
 				.ability1 = ABILITY_GUTS,
 				.ability2 = ABILITY_NOGUARD,
 				.safariZoneFleeRate = 0,
-				.hiddenAbility = ABILITY_STEADFAST,
+				.hiddenAbility = ABILITY_MOUNTAINEER,
 				.noFlip = TRUE,
 			},
 
@@ -4693,7 +4693,7 @@ const struct BaseStats gBaseStats[] =
 				.ability1 = ABILITY_ROCKHEAD,
 				.ability2 = ABILITY_PRESSURE,
 				.safariZoneFleeRate = 0,
-				.hiddenAbility = ABILITY_UNNERVE,
+				.hiddenAbility = ABILITY_MOUNTAINEER,
 				.noFlip = TRUE,
 			},
 
@@ -40002,7 +40002,7 @@ const struct BaseStats gBaseStats[] =
 				.ability1 = ABILITY_GUTS,
 				.ability2 = ABILITY_NOGUARD,
 				.safariZoneFleeRate = 0,
-				.hiddenAbility = ABILITY_STEADFAST,
+				.hiddenAbility = ABILITY_MOUNTAINEER,
 				.noFlip = TRUE,
 			},
 

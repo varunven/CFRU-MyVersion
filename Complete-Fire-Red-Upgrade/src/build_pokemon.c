@@ -69,6 +69,7 @@ enum
 	WATER_IMMUNITY,
 	GRASS_IMMUNITY,
 	FAIRY_IMMUNITY,
+	ROCK_IMMUNITY,
 	ELECTRIC_IMMUNITY,
 	SOUND_IMMUNITY,
 	JUSTIFIED_BOOSTED,
@@ -1613,6 +1614,10 @@ static u8 BuildFrontierParty(struct Pokemon *const party, const u16 trainerId, c
 
 					case ABILITY_GUARDIANANGEL:
 						builder->partyIndex[FAIRY_IMMUNITY] = i;
+						break;
+
+					case ABILITY_MOUNTAINEER:
+						builder->partyIndex[ROCK_IMMUNITY] = i;
 						break;
 
 					case ABILITY_LEVITATE:

@@ -305,6 +305,7 @@ const s8 gAbilityRatings[ABILITIES_COUNT] =
 		[ABILITY_SHARPNESS] = 7,
 		[ABILITY_GUARDIANANGEL] = 7,
 		[ABILITY_EARTHEATER] = 7,
+		[ABILITY_MOUNTAINEER] = 6,
 };
 
 const bool8 gMoldBreakerIgnoredAbilities[] =
@@ -380,6 +381,7 @@ const bool8 gMoldBreakerIgnoredAbilities[] =
 		// [ABILITY_PASTELVEIL] = TRUE,
 		[ABILITY_GUARDIANANGEL] = TRUE,
 		[ABILITY_EARTHEATER] = TRUE,
+		[ABILITY_MOUNTAINEER] = TRUE,
 };
 
 const u16 gWeatherContinuesStringIds[] =
@@ -1572,6 +1574,11 @@ u8 AbilityBattleEffects(u8 caseID, u8 bank, u8 ability, u8 special, u16 moveArg)
 		case ABILITY_GUARDIANANGEL:
 			if (moveType == TYPE_FAIRY)
 				effect = 2, statId = STAT_SPATK;
+			break;
+
+		case ABILITY_MOUNTAINEER:
+			if (moveType == TYPE_ROCK)
+				effect = 2, statId = STAT_DEF;
 			break;
 
 		case ABILITY_FLASHFIRE:
